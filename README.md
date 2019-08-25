@@ -9,7 +9,6 @@
 |furigana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|address_id|integer|null: false|
 |birthday|integer|null: false|
 |comment|text|
 |gender|string|null: false|
@@ -127,6 +126,7 @@
 |prefectures|string|null: false|
 |municipalities|string|null: false|
 |address|string|null: false|
+|user_id|integer|null: fasle|
 
 ###Association
 - belongs_to :user
