@@ -16,7 +16,7 @@
 |gender|string|null: false|
 |user_rating_id|integer|
 |item_comment|text|
-|user_buy_id|integer|
+|buyers_id|integer|
 |images_id|integer|
 
 
@@ -27,11 +27,11 @@
 - has_many :user_ratings
 - has_many :cards
 - has_many :item_comments
-- has_many :items, through: :user_buy
+- has_many :items, through: :buyers
 - has_one :address
 - has_many :itmes, through: :images
 
-## user_buyテーブル
+## buyersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -60,8 +60,8 @@
 |region|string|null:|false|
 |shipping_date|string|null: false|
 |way|string|null: false|
-|user_sell_id|integer|null: false|
-|user_buy_id|integer|
+|seller_id|integer|null: false|
+|buyers_id|integer|
 |category_id|integer|null: false|
 |price|integer|null: false|   
 |state||string|null: false|
@@ -73,7 +73,7 @@
 - belongs_to :user
 - belongs_to :item_comment
 - belongs_to :category
-- has_many :users, through: :user_buy
+- has_many :users, through: :buyers
 - has_many :votes_items
 - has_many :voted_items, through: :votes, source: :item
 - has_many :users, through: :images
