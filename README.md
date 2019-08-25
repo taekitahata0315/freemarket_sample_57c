@@ -15,8 +15,7 @@
 |gender|string|null: false|
 |item_comment|text|
 |buyers_id|integer|
-|images_id|integer|
-
+|image|string|
 
 ###Association
 - has_many :items, dependent: :destroy
@@ -27,18 +26,6 @@
 - has_many :item_comments
 - has_many :items, through: :buyers
 - has_one :address
-- has_many :itmes, through: :images
-- has_one :user_image
-
-## user_imageテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string|
-
-
-###Association
-- belongs_to :user
-
 
 ## buyersテーブル
 |Column|Type|Options|
@@ -49,7 +36,6 @@
 ###Association
 - belongs_to :user
 - belongs_to :item
-
 
 ## cardテーブル
 |Column|Type|Options|
@@ -85,8 +71,7 @@
 - has_many :users, through: :buyers
 - has_many :votes_items
 - has_many :voted_items, through: :votes, source: :item
-- has_many :users, through: :images
-
+- has_many :image
 
 ## votesテーブル
 |Column|Type|Options|
@@ -97,7 +82,6 @@
 ###Association
 - belongs_to :user
 - belongs_to :item
-
 
 ## user_ratingテーブル
 |Column|Type|Options|
@@ -131,13 +115,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
 |itme_id|integer|null: fasle, foreign_key: true|
 
 ###Association
 - belongs_to :item
-- belongs_to :user
-
 
 ## addressテーブル
 |Column|Type|Options|
