@@ -52,7 +52,7 @@
 |way|string|null: false|
 |seller_id|integer|null: false, foreign_key: true|
 |buyers_id|integer|foreign_key: true|
-|category_id|integer|null: false|
+|categorys_id|integer|null: false|
 |price|integer|null: false|   
 |state||string|null: false|
 |description|text|
@@ -61,12 +61,12 @@
 
 ###Association
 - belongs_to :user
-- belongs_to :item_comment
 - belongs_to :category
 - has_many :votes_items
 - has_many :voted_items, through: :votes, source: :item
 - has_many :image
 - has_one :buyer
+- has_many :item_comments
 
 ## votesテーブル
 |Column|Type|Options|
@@ -87,7 +87,7 @@
 ###Association
 - belongs_to :user
 
-## item_commentテーブル
+## item_commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|integer|null: false,  foreign_key: true|
@@ -96,7 +96,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## categoryテーブル
+## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
