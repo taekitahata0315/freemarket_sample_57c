@@ -116,7 +116,7 @@
 |size|string|null: false|
 
 ###Association
-- has_one :item
+- has_many :items
 
 ## imagesテーブル
 |Column|Type|Options|
