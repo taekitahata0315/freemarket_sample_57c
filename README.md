@@ -1,4 +1,4 @@
-# README
+## README
 
 
 ## userテーブル
@@ -6,23 +6,41 @@
 |------|----|-------|
 |name|string|null: false|
 |nickname|string|null:false, unique: true|
+|user_image|string|
 |furigana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|address|string|null: false|
+|address_id|integer|null: false|
 |birthday|integer|null: false|
 |comment|text|
 |gender|string|null: false|
-|user_evaluation_id|integer|
-|discount_comment|text|
+|user_rating_id|integer|
+|item_comment|text|
+|user_buy_id|integer|
+|images_id|integer|
+
 
 ###Association
 - has_many :items, dependent: :destroy
-- has_many :likes, dependent: :destroy
-- has_many :like_items, through: :likes, source: :item
-- has_many :user_evalutions
+- has_many :votes_items, dependent: :destroy
+- has_many :votes_item_items, through: :votes, source: :item
+- has_many :user_ratings
 - has_many :cards
-- has_many :discount_comments
+- has_many :item_comments
+- has_many :items, through: :user_buy
+- has_one :address
+- has_many :itmes, through: :images
+
+## user_buyテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+###Association
+- belongs_to :user
+- belongs_to :item
+
 
 ## cardテーブル
 |Column|Type|Options|
@@ -38,7 +56,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|image|string|null: false|
 |postage|string|null: false|
 |region|string|null:|false|
 |shipping_date|string|null: false|
@@ -49,16 +66,20 @@
 |price|integer|null: false|   
 |state||string|null: false|
 |description|text|
-|like_id|integer|null: false|
+|votes_item_id|integer|null: false|
+|image_id|integer|null: false|
 
 ###Association
 - belongs_to :user
-- has_many :likes
-- has_many :liked_items, through: :likes, source: :item
-- belongs_to :discount_comment
+- belongs_to :item_comment
 - belongs_to :category
+- has_many :users, through: :user_buy
+- has_many :votes_items
+- has_many :voted_items, through: :votes, source: :item
+- has_many :users, through: :images
 
-## likeテーブル
+
+## votesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, index, foreign_key: true|
@@ -69,16 +90,16 @@
 - belongs_to :item
 
 
-## user_ evaluationテーブル(ユーザー評価)
+## user_ratingテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 |comment|text|
 
 ###Association
 - belongs_to :user
 
-## discount_commentテーブル
+## item_commentテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false,  foreign_key: true|
@@ -96,3 +117,26 @@
 
 ###Association
 - has_one :item
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|user_id|references|null: false, foreign_key: true|
+|itme_id|references|null: fasle, foreign_key: true|
+
+###Association
+- belongs_to :item
+- belongs_to :user
+
+
+## addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|integer|null: false|
+|prefectures|string|null: false|
+|municipalities|string|null: false|
+|address|string|null: false|
+
+###Association
+- belongs_to :user
