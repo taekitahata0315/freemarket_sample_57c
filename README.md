@@ -14,7 +14,6 @@
 |birthday|integer|null: false|
 |comment|text|
 |gender|string|null: false|
-|user_rating_id|integer|
 |item_comment|text|
 |buyers_id|integer|
 |images_id|integer|
@@ -34,8 +33,8 @@
 ## buyersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ###Association
 - belongs_to :user
@@ -82,8 +81,8 @@
 ## votesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item|references|null: false, index, foreign_key: true|
-|user|references|null: false, index, foreign_key: true|
+|item|references|null: false, index|
+|user|references|null: false, index|
 
 ###Association
 - belongs_to :user
@@ -93,7 +92,7 @@
 ## user_ratingテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |comment|text|
 
 ###Association
@@ -102,8 +101,8 @@
 ## item_commentテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|references|null: false,  foreign_key: true|
-|user_id|references|null: false,  foreign_key: true|
+|item_id|integer|null: false,  foreign_key: true|
+|user_id|integer|null: false,  foreign_key: true|
 ###Association
 - belongs_to :user
 - belongs_to :item
@@ -122,8 +121,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-|itme_id|references|null: fasle, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+|itme_id|integer|null: fasle, foreign_key: true|
 
 ###Association
 - belongs_to :item
