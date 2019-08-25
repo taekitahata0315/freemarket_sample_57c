@@ -6,7 +6,6 @@
 |------|----|-------|
 |name|string|null: false|
 |nickname|string|null:false, unique: true|
-|user_image|string|
 |furigana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
@@ -29,6 +28,17 @@
 - has_many :items, through: :buyers
 - has_one :address
 - has_many :itmes, through: :images
+- has_one :user_image
+
+## user_imageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|
+
+
+###Association
+- belongs_to :user
+
 
 ## buyersテーブル
 |Column|Type|Options|
