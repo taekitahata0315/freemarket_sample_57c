@@ -4,9 +4,11 @@
 ## userテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|fist_name|string|null: false|
+|last_name|string|null: false|
 |nickname|string|null:false, unique: true|
-|furigana|string|null: false|
+|fist_name_furigana|string|null: false|
+|last_name_furigana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |birthday|integer|null: false|
