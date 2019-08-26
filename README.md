@@ -12,7 +12,6 @@
 |birthday|integer|null: false|
 |comment|text|
 |gender|string|null: false|
-|item_comment|text|
 |image|string|
 
 ###Association
@@ -92,6 +91,7 @@
 |------|----|-------|
 |item_id|integer|null: false,  foreign_key: true|
 |user_id|integer|null: false,  foreign_key: true|
+|item_comment|text|
 ###Association
 - belongs_to :user
 - belongs_to :item
