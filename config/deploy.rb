@@ -70,7 +70,7 @@ set :default_env, {
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-set :linked_files, %w{ config/master.yml }
+set :linked_files, %w{ config/master.key}
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
 
@@ -80,13 +80,13 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload master.yml'
+  desc 'upload master.key'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('config/master.yml', "#{shared_path}/config/master.yml")
+      upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
   before :starting, 'deploy:upload'
