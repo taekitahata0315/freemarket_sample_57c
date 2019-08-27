@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_112857) do
     t.string "nickname", null: false
     t.string "fist_name_furigana", null: false
     t.string "last_name_furigana", null: false
-    t.integer "birthday", null: false
+    t.date "birthday", null: false
     t.string "gender", null: false
     t.text "comment"
     t.string "image"

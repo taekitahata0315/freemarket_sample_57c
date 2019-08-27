@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :nickname,                     null: false, unique: true, index: true
       t.string :fist_name_furigana,           null: false
       t.string :last_name_furigana,           null: false
-      t.integer :birthday,          null: false
+      t.date :birthday,          null: false
       t.string :gender,             null: false
       t.text :comment
       t.string :image
