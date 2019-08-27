@@ -58,9 +58,9 @@ set :default_env, {
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-  BASIC_AUTH_USERENV:["BASIC_AUTH_USER"]
-  BASIC_AUTH_PASSWORDENV:["BASIC_AUTH_PASSWORD"]
- }
+  BASIC_AUTH_USERENV: ENV["BASIC_AUTH_USER"]
+  BASIC_AUTH_PASSWORDENV: ENV["BASIC_AUTH_PASSWORD"]
+  }
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
