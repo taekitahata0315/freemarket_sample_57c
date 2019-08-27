@@ -11,7 +11,7 @@
 |last_name_furigana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|birthday|integer|null: false|
+|birthday|date|null: false|
 |comment|text|
 |gender|string|null: false|
 |image|string|
