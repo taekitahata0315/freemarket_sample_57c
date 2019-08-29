@@ -1,0 +1,70 @@
+* {
+  background-repeat: no-repeat;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: inherit;
+  padding: 0;
+}
+.single-main {
+  display: block;
+.l-single-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+}
+.l-single-head__registration {
+  font-size: 22px;
+  padding: 32px;
+  line-height: 1.5px;
+  text-align: center;
+  }
+.form {
+  padding: 24px 16px 40px;
+.l-single-content {
+  max-width: 343px;
+  margin: 0 auto;
+&__nickname {
+label {
+  font-weight: 600;
+  font-size: 12px;
+  }
+.l-single-content__nickname__form {
+  width: 100%;
+  margin: 8px 0 0;
+  height: 28px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+      }
+    }
+  }
+}
+.l-single-conten__email {
+  margin: 24px;
+  label {
+    font-weight: 600;
+    font-size: 12px;
+      }
+#user_email.l-single-conten__email {
+  width: 100%;
+  margin: 8px 0 0;
+  height: 28px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+  } 
+}
+.l-single-content__require {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  }
+}
