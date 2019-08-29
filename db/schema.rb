@@ -13,15 +13,15 @@
 ActiveRecord::Schema.define(version: 2019_08_25_112857) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "fist_name", null: false
+    t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.string "fist_name_furigana", null: false
-    t.string "last_name_furigana", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
     t.date "birthday", null: false
-    t.string "gender", null: false
+    t.string "gender"
     t.text "comment"
     t.string "image"
     t.string "reset_password_token"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_112857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["fist_name"], name: "index_users_on_fist_name"
+    t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["nickname"], name: "index_users_on_nickname"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
