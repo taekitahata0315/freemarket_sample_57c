@@ -1,0 +1,149 @@
+
+.item:hover{
+  background: #eee;
+  color: #333;
+  .icon{
+    color: #333;
+  }
+}
+
+
+.clearfix{
+line-height: 1;
+font-family: 'Source Sans Pro', 'Helvetica' , 'Arial', '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', 'sans-serif';
+height: 1292px;
+margin: 24px auto 0;
+display: block;
+@media screen and (min-width: 768px) {
+width: 700px;
+}
+@media screen and (min-width: 1068px) {
+margin: 40px auto 0;
+width: 1020px;
+}
+&__content{
+background-color: black;
+height: 932px;
+@media screen and (min-width: 768px){
+width: 700px;
+}
+@media screen and (min-width: 1068px) {
+height: 932px;
+float: right;
+width: 700px;
+}
+}
+
+&__sidebar{
+height: 1252px;
+margin: 40px auto 0;
+width: 100%;
+float: left;
+@media screen and (min-width: 768px) {
+width: 700px;
+}
+@media screen and (min-width: 1068px) {
+float: left;
+width: 280px;
+margin: 0 40px 40px 0 ;
+}
+&__user{
+list-style: none;
+height: 685px;
+background-color: sienna;
+display: block;
+li:first-child{
+border: 0;
+}
+li{
+border-top: 1px solid #eee; 
+a{
+  position: relative;
+  display: block;
+  min-height: 48px;
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+.icon{
+  position: absolute;
+  right: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all;
+  color: #ccc;
+}
+}
+}
+}
+&__merpay-head{
+margin: 42px 0 0;
+}
+&__merpay-body{
+list-style: none;
+margin-top: 6px;
+li:first-child{
+border: 0;
+}
+li{
+border-top: 1px solid #eee; 
+a{
+  position: relative;
+  display: block;
+  min-height: 48px;
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+.icon{
+  position: absolute;
+  right: 16px;
+  font-size: 23px;
+  font-weight: bold;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all;
+  color: #ccc;
+}
+}
+}
+}
+&__setting-head{
+margin: 42px 0 0;
+}
+&__setting-body{
+list-style: none;
+margin-top: 6px;
+li:first-child{
+border: 0;
+}
+li{
+border-top: 1px solid #eee; 
+a{
+  position: relative;
+  display: block;
+  min-height: 48px;
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+.icon{
+  position: absolute;
+  right: 16px;
+  font-size: 23px;
+  font-weight: bold;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all;
+  color: #ccc;
+}
+}
+}
+}
+}
+}
