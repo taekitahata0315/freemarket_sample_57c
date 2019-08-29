@@ -4,15 +4,16 @@
 ## userテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
 |nickname|string|null:false, unique: true|
-|furigana|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|birthday|integer|null: false|
+|birthday|date|null: false|
 |comment|text|
-|gender|string|null: false|
-|item_comment|text|
+|gender|string|
 |image|string|
 
 ###Association
@@ -54,7 +55,7 @@
 |buyers_id|integer|foreign_key: true|
 |categorys_id|integer|null: false|
 |price|integer|null: false|   
-|state||string|null: false|
+|state|string|null: false|
 |description|text|
 |votes_item_id|integer|foreign_key: true|
 |image_id|integer|null: false, foreign_key: true|
@@ -92,6 +93,7 @@
 |------|----|-------|
 |item_id|integer|null: false,  foreign_key: true|
 |user_id|integer|null: false,  foreign_key: true|
+|item_comment|text|
 ###Association
 - belongs_to :user
 - belongs_to :item
