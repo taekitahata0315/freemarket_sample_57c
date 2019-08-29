@@ -1,5 +1,11 @@
 class SellController < ApplicationController
   def index
-    @item = Item.create(params[:name])
+  end
+  
+  def create
+    @item = Item.new(group_params)
+    if @item.save
+      redirect_to root_path
+    end
   end
 end
