@@ -1,1 +1,61 @@
-"ふわふわ"
+= render 'mercari/header'
+%main.white{role: 'main'}
+  %section.top
+    .top-stage
+      .top-stage-image{style: "left: -2398px, width: 100%"}
+        =render 'cloned'
+        .top-stage-image-item.active{style: "width: 100%"}
+          = link_to "", "/" , class: "top-stage-image-item-one camp"
+        .top-stage-image-item{style: "width: 100%"}
+          %div
+            .top-stage-image-item-main
+              %div
+                .top-stage-image-item-main-content
+                  %h2 
+                    スマホでかんたん
+                    %br/
+                    フリマアプリ
+                  %p
+                    メルカリはスマホカメラからすぐに出品できる
+                    %br/
+                    購入時も安心な独自システムのアプリです
+                .top-stage-image-item-main-store.clearfix
+                  = link_to image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?575670517'), "/", class: "top-stage-image-item-main-store-left", target: "_blank"
+                  = link_to image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?575670517'), "/", class: "top-stage-image-item-main-store-left", target: "_blank"
+                = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?575670517")
+            #sp-top.top-stage-image-item_visible
+              #sp-top-banner
+                %h2
+                  スマホで
+                  %br/
+                  かんたん
+                  %br/
+                  フリマアプリ
+                = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?575670517')
+              #sp-top-dl.clearfix
+                = link_to image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?575670517'), "/"
+                = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?575670517"), "/"
+        = render 'cloned'
+    .top-nav
+      .top-nav-prev prev
+      .top-nav-next next
+    .top-dot
+      .top-dot-one.active
+        %span
+      .top-dot-one
+        %span
+  %section.pickup_main
+    %h2.pickup_main-head ピックアップカテゴリー
+    %section.pickup_main-content.clearfix
+      %h3.pickup_main-content-title 
+        = link_to "レディース 新着アイテム"
+      .pickup_main-content-items.clearfix
+        =render 'item'
+        =render 'item'
+        =render 'item'
+        =render 'item'
+      .view-all
+        = link_to 'すべての商品を見る'
+= render 'aside'
+= render 'footer'
+= render 'exhibit'

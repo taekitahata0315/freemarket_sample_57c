@@ -1,0 +1,395 @@
+.white{
+  background-color: #fff;
+}
+a{
+  color: #0099e8;
+  text-decoration: none;
+}
+img{
+  vertical-align: middle;
+}
+.font-2{
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+.font-5{
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+.lazyloaded{
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  transition-delay: 0s;
+  transition-timing-function: ease;
+}
+section{
+  display: block;
+}
+i{
+  display: inline-block;
+  font-family: 'icon-font';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+main{
+  background-color: #fff;
+  color: #333;
+
+  .top{
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    @media screen and (min-width: 768px){
+      height: 290px;
+    }
+    @media screen and (min-width: 1068px){
+      height: 390px;
+    }
+    &-stage{
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    &-image{
+      position: relative;
+      height: 100%;
+      // left: -2796px;
+      // width: 5592px;
+    &-item{
+      min-height: 1px;
+      float: left;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      height: 100%;
+      &-one{
+        background-size: cover;
+        background-position: center;
+        display: block;
+        height: 100%;
+        @media screen and (min-width: 1068px){
+          background-size: auto;
+        }
+        >a{
+          height: 100%;
+        }
+      }
+      .camp{
+        background-image: url('https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg');
+        background-repeat: repeat-x;
+      }
+      &-main{
+        background: url('https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg');
+        background-size: cover;
+        display: none;
+        height: 290px;
+        @media screen and (min-width: 768px){
+          display: block;
+        }
+        @media screen and (min-width: 1068px){
+          height: 390px;
+        }
+        >div{
+          position: relative;
+          max-width: 730px;
+          height: 100%;
+          margin: 0 auto;
+        }
+        &-conter{
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(0, -50%);
+        }
+          h2{
+            font-size: 40px;
+            line-height: 1.2;
+          }
+          p{
+            margin: 16px 0 0;
+            font-size: 16px;
+            line-height: 1.77778;
+          }
+        
+        &-store{
+          margin: 24px 0 0;
+          line-height: 0;
+          >a:first-child{
+            margin: 0;
+          }
+          >a{
+            display: inline-block;
+            width: 128px;
+            height: 38px;
+            margin: 0 0 0 8px;
+            img{
+              vertical-align: bottom;
+            }
+            >img{
+              width: 100%;
+            }
+          }
+        }
+        >div>img{
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: auto;
+        }
+      }
+      #sp-top{
+        @media screen and(min-width: 768px){
+          display: none;
+        }
+        &-banner{
+          background: url('http://img01.gahag.net/201605/09o/gahag-0083896725.png');
+          color: #333;
+          height: 157px;
+          padding: 20px 15px;
+          position: relative;
+          @media screen and(min-width: 375px){
+            padding: 20px 50px;
+          }
+          h2{
+            font-size: 1.8em;
+            position: relative;
+            z-index: 1;
+          }
+          img{
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: auto;
+            @media screen and(min-width: 375px){
+              right: 30px;
+            }
+          }
+        }
+        &-dl{
+          width: 240px;
+          margin: 5px auto;
+          @media screen and(min-width: 480px){
+            width: 468px;
+            margin: 20px auto;
+          }
+          a{
+            float: left;
+            display: block;
+            width: 110px;
+            height: 32px;
+            margin: 0 20px 0 0;
+            @media screen and(min-width: 480px){
+              width: 230px;
+              height: 68px;
+            }
+            img{
+              height: 100%;
+            }
+          }
+          a:last-child{
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+    .top-nav{
+      color: transparent;
+      display: block;
+      &-prev{
+        background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/carousel-prev.png");
+        left: 10px;
+        cursor: pointer;
+        height: 46px;
+        width: 31px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-23px);
+        @media screen and (min-width: 768px){
+          left: 60px;
+        }
+      }
+      &-next{
+        right: 10px;
+        background-image: url('https://www.mercari.com/jp/assets/img/common/jp/top/carousel-next.png');
+        cursor: pointer;
+        height: 46px;
+        width: 31px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-23px);
+        @media screen and (min-width: 768px){
+        right: 60px;
+        }
+      }
+    }
+    .top-dot{
+      display: none;
+      margin: -30px;
+      text-align: center;
+      line-height: 0;
+      @media screen and (min-width: 768px){
+        display: block;
+      }
+      &-one{
+        background: #fff;
+        border-radius: 50%;
+        height: 12px;
+        margin-right: 15px;
+        width: 12px;
+      }
+    }
+}
+
+.pickup_main{
+  padding: 20px 0 0 0;
+  background: #f5f5f5;  
+  @media screen and (min-width: 768px) {
+      padding: 40px 0;
+  }
+  h2{
+    font-size: 22px;
+    line-height: 1.4;
+    @media screen and (min-width: 768px) {
+      font-size: 28px;
+    }
+  }
+  &-head{
+    font-size: 22px;
+    text-align: center;
+  }
+
+  
+  &-content{
+    @media screen and (min-width: 768px) {
+      width: 700px;
+      margin: 0 auto;
+    }
+    @media screen and (min-width: 1068px) {
+      width: 940px;
+    }
+    &-title{
+      text-align: center;
+      font-size: 18px;
+      margin: 26px 11px;
+      @media screen and (min-width: 768px) {
+        font-size: 22px;
+      }
+    }
+    &-items{
+      width: 92%;
+      margin: 0 auto;
+      @media screen and (min-width: 768px) {
+        width: auto;
+      }
+      &-box{
+        margin: 0 0 20px 20px;
+        width: calc(50% - 30px);
+        position: relative;
+        float: left;
+        background-color: #fff;
+        @media screen and (min-width: 768px) {
+          margin: 0 0 0 20px;
+          width: 213px;
+        }
+        a{
+          display: block;
+          color: #333;
+        }
+        figure{
+          width: 100%;
+          display: block;
+          @media screen and (min-width: 768px) {
+            width: 213px;
+          }
+        }
+        &-photo{
+          overflow: hidden;
+          position: relative;
+          padding: 0 0 100%;
+          @media screen and (min-width: 768px) {
+            width: 220px;
+            height: 220px;
+          }
+
+          img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+        }
+      }
+        &-body{
+          padding: 8px;
+          height: 110px;
+          @media screen and (min-width: 768px) {
+            padding: 16px;
+          }
+          &-name{
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: normal;
+            &::after{
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              width: 50%;
+              height: 1.5em;
+              background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 72%);
+            }
+          }
+        &-num{
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          margin: 8px 0 0;
+          &_price{
+            @media screen and (min-width: 768px) {
+              font-size: 16px;
+            }
+            @media screen and (min-width: 1068px) {
+              font-size: 17px;
+            }
+          }
+          &_icon{
+            &_heart{
+              color: #ccc;
+            }
+            }
+          }
+        }
+        }
+      }
+  }
+}
+  .view-all{
+    padding: 20px 0 30px;
+    text-align: right;
+    width: 91%;
+    @media screen and (min-width: 1068px) {
+      font-size: 17px;
+      width: 99.5%;
+    }
+  }
+}
