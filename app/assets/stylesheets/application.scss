@@ -1,6 +1,7 @@
 @import "./reset";
 @import "font-awesome";
 @import "mixin/clearfix";
+@import "mixin/require";
 @import "./aside";
 @import "./header";
 @import "./top";
@@ -8,3 +9,4 @@
 @import "./camera";
 @import "./single-header.scss";
 @import "./single-main";
+@import "./sell.scss";
