@@ -1,3 +1,4 @@
+= render 'mercari/header'
 %main.card.clearfix
   %div.card__box
     %section.card__box--container
@@ -79,3 +80,7 @@
             %button#submit-button.btn__default.btn__default--red{type: "button"} 追加する
             %script{async: "", src: ""}
             %script{async: "", src: ""}
+    = render './users/mypage_sidebar'
+= render './mercari/aside'
+= render './mercari/footer'
+= render './mercari/exhibit'
