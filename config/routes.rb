@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'mercari#index'  
   resources :mercari
   resources :sell
-  resources :users
+  resources :users ,only: [:show]
 end
 
 
