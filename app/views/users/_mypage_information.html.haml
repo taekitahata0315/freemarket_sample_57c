@@ -1,0 +1,55 @@
+.mypage-information
+  %h2.mypage-information__head 本人情報の登録
+  .mypage-information__body
+    .mypage-information__body__message
+      %p 
+        お客さまの本人情報をご登録ください。
+      %p  
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .mypage-information__body__message__right
+        = link_to ('show') do
+          本人確認書類のアップロードについて
+          = fa_icon 'angle-right', class: 'icon'
+    .mypage-information__body__name
+      お名前
+      %p 石川勇健
+    .mypage-information__body__kana
+      お名前カナ
+      %p イシカワ トシカツ
+    .mypage-information__body__birthday
+      生年月日
+      %p 1995/03/21
+    .mypage-information__body__postal-code
+      郵便番号
+      %span.mypage-information__body__postal-code__arbitrary 任意
+      = text_field_tag :postal_code,"", placeholder: '例）5798003'
+    
+    .mypage-information__body__prefectures
+      都道府県
+      %span.mypage-information__body__prefectures__arbitrary 任意
+      = form_for user_session_path , html:{class: "form_page"} do |f|
+        = fa_icon 'angle-down', class: 'arrow'
+        = f.collection_select :prefecture_id,Prefecture.all, :id, :name ,{},{class: 'select_f'}
+    
+    .mypage-information__body__municipalities
+      市町村
+      %span.mypage-information__body__municipalities__arbitrary 任意
+      = text_field_tag :municipalities,"", placeholder: '例）東大阪市日下町'
+    
+    .mypage-information__body__address
+      番地
+      %span.mypage-information__body__address__arbitrary 任意
+      = text_field_tag :postal_code,"", placeholder: '例）1-1-24'
+    
+    .mypage-information__body__building-name
+      建物名
+      %span.mypage-information__body__building-name__arbitrary 任意
+      = text_field_tag :postal_code,"", placeholder: '例）ハイツ浪速'
+    
+    .mypage-information__body__update-btn 
+      %input{type: 'submit' ,class: 'update-submit',value: '登録する'}
+            
+    .mypage-information__body__text-right
+      = link_to ('show') do
+        本人情報の登録について
+        = fa_icon 'angle-right', class: 'icon'
