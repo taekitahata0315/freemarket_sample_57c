@@ -1,0 +1,246 @@
+body{
+  background: #f5f5f5;
+}
+
+input{
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+}
+.error-text{
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+}
+label{
+  display: inline-block;
+}
+
+.fa-chevron-down{
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  font-size: 8px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.card{
+  @include clearfix();
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  @media screen and (min-width: 768px){
+  width: 700px;
+  }
+  @media screen and (min-width: 1068px){
+    margin: 40px auto 0;
+    width: 1020px;
+  }
+  &__box{
+    width: 100%;
+    @media screen and (min-width: 768px){
+    float: none;
+    width: 700px;
+    }
+    @media screen and (min-width: 1068px){
+    float: right;
+    }
+      &--container:first-child{
+        margin: 0;
+      }
+      &--container{
+        margin: 40px 0 0;
+        background: #fff;
+      
+      &--head{
+        padding: 12px 4%;
+        border-bottom:1px solid #f5f5f5;
+        text-align: center;
+        font-size: 18px;
+        @media screen and (min-width: 768px){
+        font-size: 24px;
+        padding: 8px 24px;
+        }
+      }
+    }
+      h2{
+        font-size: 22px;
+        line-height: 1.4;
+      }
+    &--inner{
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      @media screen and (min-width: 768px){
+      padding: 64px;
+      }
+      @media screen and (min-width: 1068px){
+      padding: 40px 40px 64px;
+      }
+    }
+      &--content{
+        margin: 0 auto;
+        max-width: 343px;
+      }
+        &--form-group:first-child{
+          margin: 0;
+        }
+        &--form-group{
+          width: 100%;
+          margin: 40px 0 0;
+          label{
+          font-weight: 600;
+          }
+        }
+            .form-require{
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+              background: red;
+            }
+            &--form-group, &--input{
+              width: 100%;
+              margin: 8px 0 0;
+            }
+            &--input{
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+          }
+        }
+        .card-list{
+          margin: 8px 0 0;
+          font-size: 0;
+            li{
+              display: inline-block;
+              margin: 0 0 0 8px;
+              vertical-align: middle;
+            }
+            li:first-child  {
+              margin: 0;
+            }
+        }
+        .card__box--form-group label{
+          font-weight: 600;
+          font-size: 14px;
+        }
+        .signup-form-expire,.select-wrapper.half{
+          display: inline-block;
+          width: calc(50% - 2px);
+        }
+        .select-wrapper{
+          position: relative;
+          background: #fff;
+          font-size: 10px;
+          margin: 0 6px 0 -15px;
+          position: relative;
+          top:3px;
+          span{
+            font-size: 14px;
+          }
+        }
+        .signup-form-expire,.select-wrapper select{
+          width: calc(100% - 38px);
+        }
+        .select-default{
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          outline: 0;
+          -webkit-appearance: none;
+          
+
+          position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+        }
+        .signup-form-expire,.select-wrapper,.fa-chevron-down{
+          font-size: 10px;
+          margin: 0 6px 0 -15px;
+          position: relative;
+          top:3px;
+        }
+        .signup__securitiy--code{
+          position: relative;
+          margin: 8px 0 0;
+          text-align: right;
+          color: #0099e8;
+        }
+        .form-puestion{
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+        .signup__securitiy--info{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 28px;
+          z-index: 1;
+          padding: 16px;
+          border-radius: 6px;
+          background: #eee;
+          color: #333;
+          line-height: 1.5;
+          text-align: center;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          visibility: hidden;
+          opacity: 0;
+        }
+        .btn__default{
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+          max-width: 343px;
+        &--red{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+        }
+        } 
+        .card__box--form-group{
+          margin-top: 32px;
+          @media screen and (min-width: 1068px){
+            margin-top: 32px;
+          }
+        }
+        .left{
+          margin-left: 15px;
+        }
