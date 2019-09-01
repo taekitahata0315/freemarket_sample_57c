@@ -1,0 +1,99 @@
+.wrap{
+  @include clearfix();
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  main{
+    display: block;
+  }
+  @media screen and (min-width: 768px){
+  width: 700px;
+  }
+  @media screen and (min-width: 1068px){
+  margin: 40px auto 0;
+  width: 1020px;
+  }
+  
+}
+  .profile__content{
+    width: 100%;
+    :first-child {
+      margin: 0;
+    }
+    @media screen and (min-width: 768px){
+    float: none;
+    width: 700px;
+    }
+    &--chapter{
+      background: #fff;
+        input{
+          border: 0;
+          outline: 0;
+          font-family: inherit;
+          -webkit-appearance: none;
+        }
+    &--head{
+      padding: 12px 4%;
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      font-size: 18px;
+      h2{
+        font-size: 22px;
+        line-height: 1.4;
+      }
+      @media screen and (min-width: 768px){
+        font-size: 24px;
+        padding: 8px 24px;
+      }
+      &--user{
+        padding: 72px 16px 24px;
+        background-image: url("#{asset-path("brick1_04.jpg")}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        font-size: 0;
+          figre{
+            display: inline-block;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            vertical-align: middle;
+          }
+            .input-box{
+              width: 220px;
+              margin: 0 0 0 8px;
+              vertical-align: middle;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+      } 
+    }
+    }  //profile__content--chapter--head の閉じカッコ
+    .profile__content--chapter--comment{
+        padding: 40px 16px;
+          .textarea-box{
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+            border: 1px solid#ccc;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 216px;
+          }
+          .btn-red{
+            margin: 16px 0 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+          }
+        }
+        }
