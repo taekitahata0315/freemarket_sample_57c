@@ -1,0 +1,14 @@
+.mypage-wrapper
+  = render 'mercari/header'
+  .pankuzu ここにパンくず
+  .mypage-container
+    .logout__box
+      .logout__box__container
+        = form_for user_session_path , html:{class: "form"} do |f|
+          .logout__box__container__single
+            = f.button "ログアウト", class: "logout__box__container__single__btn"
+            = f.hidden_field :name, {}
+    = render 'users/mypage_sidebar'
+= render 'mercari/aside'
+= render 'mercari/footer'
+= render 'mercari/exhibit'
