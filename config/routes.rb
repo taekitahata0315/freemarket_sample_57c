@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/mercari/logout', to: "mercari#logout", as: "mercari"
   resources :mercari
   resources :sell
-  resources :users ,only: [:show]
+  resources :users, only: [:show ,:index]
 end
 
 
