@@ -20,23 +20,35 @@
               = link_to " ", class:'header-nav-box__root list-parent' do
                 %i.fa.fa-tag
                 %span プランドから探す
-      .header-nav-box__right
-        %ul
-          %li.header-nav-box__right__menu
-            = link_to " ", class: 'header-nav-box__right__menu__link' do
-              %i.fa.fa-heart
-              %span いいね！一覧
-          %li.header-nav-box__right__menu
-            = link_to " ", class: 'header-nav-box__right__menu__link' do
-              %i.fa.fa-bell
-              %span お知らせ
-          %li.header-nav-box__right__menu
-            = link_to  " ", class: 'header-nav-box__right__menu__link'do
-              %i.fa.fa-check
-              %span やることリスト
-          %li.header-nav-box__right__menu.header-nav-box__right__user.header-todo-box.mypage-item-list
-            = link_to " ", class: 'header-user-icon header-nav-box__right__menu__link' do
-              %figure
-                %div.heder-user-icon__face
-                  = image_tag ("//static.mercdn.net/images/member_photo_noimage_thumb.png") , width: "32"
-                  %span マイページ
+      -# .header-nav-box__right
+      -#   %ul
+      -#     %li.header-nav-box__right__menu
+      -#       = link_to " ", class: 'header-nav-box__right__menu__link' do
+      -#         %i.fa.fa-heart
+      -#         %span いいね！一覧
+      -#     %li.header-nav-box__right__menu
+      -#       = link_to " ", class: 'header-nav-box__right__menu__link' do
+      -#         %i.fa.fa-bell
+      -#         %span お知らせ
+      -#     %li.header-nav-box__right__menu
+      -#       = link_to  " ", class: 'header-nav-box__right__menu__link'do
+      -#         %i.fa.fa-check
+      -#         %span やることリスト
+      -#     %li.header-nav-box__right__menu.header-nav-box__right__user.header-todo-box.mypage-item-list
+      -#       = link_to " ", class: 'header-user-icon header-nav-box__right__menu__link' do
+      -#         %figure
+      -#           %div.heder-user-icon__face
+      -#             = image_tag ("//static.mercdn.net/images/member_photo_noimage_thumb.png") , width: "32"
+      -#             %span マイページ
+      .header-nav-box__user
+        .header-nav-box__user--registration-sign_up
+          = link_to "新規会員登録 ",class: ' btn-user-red',type:"button"
+        .header-nav-box__log-in
+          .header-nav-box__user--registration-log_in
+            = link_to "ログイン ", class: 'btn-user-blue'
+
+
+
+
+
+
