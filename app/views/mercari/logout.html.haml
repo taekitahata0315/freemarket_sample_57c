@@ -4,9 +4,9 @@
   .mypage-container
     .logout__box
       .logout__box__container
-        = form_for user_session_path , html:{class: "form"} do |f|
+        = form_for user_session_path  do |f|
           .logout__box__container__single
-            = f.button "ログアウト", class: "logout__box__container__single__btn"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__box__container__single__btn"
             = f.hidden_field :name, {}
     = render 'users/mypage_sidebar'
 = render 'mercari/aside'
