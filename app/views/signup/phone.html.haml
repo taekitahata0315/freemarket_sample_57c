@@ -1,0 +1,19 @@
+= render 'mercari/progress'
+.phone__main
+  .phone__section
+    %h2.phone__section__head 電話番号の確認
+    = form_for signup_adress_path ,url: signup_adress_path ,html:{class: 'phone__section__form',method: 'GET'}do |f|  
+      = f.hidden_field @user , name: "after_save_callback"
+      .phone__section__form__content
+        .phone__section__form__content__group
+          = f.label @user, "携帯電話の番号", {class: "phone__section__form__content__group-label"}
+          = f.telephone_field @user, {name: "phone_number", class: "phone__section__form__content__group-phone", placeholder: "携帯電話の番号を入力"}
+        %p.phone__section__form__content-p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        = f.submit "SMSを送信する", { class: "phone__section__form__content-btn"}
+        %p.phone__section__form__content-p ※電話番号は本人確認や不正利用防止のために利用したます。他のユーザーに公開されることはありません。
+        .phone__section__form__content__group.g_text
+          = link_to  ("/") do
+            電話番号の確認が必要な理由
+            = fa_icon 'chevron-right', class: "phone__section__form__content__group-icon"
+.sell-container
+  = render 'sell/footer'

@@ -1,0 +1,90 @@
+.signin__main{
+  display: block;
+  &__section{
+    background: #fff;
+    @media screen and (min-width: 768px){
+      width: 700px;
+      margin: 0 auto;
+    }
+    &__head{
+      padding: 16px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+      @media screen and (min-width: 768px){
+        font-size: 22px;
+        padding: 32px;
+      }
+    }
+    &__body{
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 16px 40px;
+      @media screen and (min-width: 1068px){
+        padding: 40px 40px 64px;
+      }
+      &__content{
+        max-width: 343px;
+        margin: 0 auto;
+        .btn{
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+        }
+        &__link{
+          position: relative;
+          background: #eee;
+          border-radius: 4px;
+          color: #fff;
+          background-color: #ea352d;
+          .mail{
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            color: #ccc;
+            font-size: 25px;
+          }
+        }
+        #facebook_signin{
+          position: relative;
+          margin: 16px 0 0;
+          background: #385185;
+          color: #fff;
+          border-radius: 4px;
+          .facebook{
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+        #google_signin{
+          position: relative;
+          margin: 16px 0 0;
+          background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+          border: #979797 solid 1px;
+          color: #333;
+          border-radius: 4px;
+          .google{
+            color: #979797;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+  }
+}
