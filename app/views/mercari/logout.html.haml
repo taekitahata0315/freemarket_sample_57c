@@ -1,48 +1,14 @@
-.information
-  %h2.information__head 住所入力
-  .information__body
-    .information__body__postal-code
-      .information__body__municipalities
-      お名前
-      %span.information__body__municipalities__arbitrary.require 必須
-      = text_field_tag :municipalities,"", placeholder: '例）山田'
-      = text_field_tag :municipalities,"", placeholder: '例）彩'
-    .information__body__prefectures
-      お名前カナ
-      %span.information__body__municipalities__arbitrary.require 必須
-      = text_field_tag :municipalities,"", placeholder: '例）ヤマダ'
-      = text_field_tag :municipalities,"", placeholder: '例）アヤ'
-    .information__body__prefectures
-      郵便番号
-      %span.information__body__postal-code__arbitrary.require 必須
-      = text_field_tag :postal_code,"", placeholder: '例）5798003'
-    
-    .information__body__prefectures
-      都道府県
-      %span.information__body__prefectures__arbitrary.require 必須
-      = form_for user_session_path , html:{class: "form_page"} do |f|
-        = fa_icon 'angle-down', class: 'arrow'
-        = f.collection_select :prefecture_id,Prefecture.all, :id, :name ,{},{class: 'select_f'}
-    
-    .information__body__municipalities
-      市町村
-      %span.information__body__municipalities__arbitrary.require 必須
-      = text_field_tag :municipalities,"", placeholder: '例）東大阪市日下町'
-    
-    .information__body__address
-      番地
-      %span.information__body__address__arbitrary.require 必須
-      = text_field_tag :postal_code,"", placeholder: '例）1-1-24'
-    
-    .information__body__building-name
-      建物名
-      %span.information__body__building-name__arbitrary.arbitrary 任意
-      = text_field_tag :postal_code,"", placeholder: '例）ハイツ浪速'
-
-    .information__body__building-name
-      電話
-      %span.information__body__building-name__arbitrary.arbitrary 任意
-      = text_field_tag :postal_code,"", placeholder: '例）09012345678'
-    
-    .information__body__update-btn 
-      %input{type: 'submit' ,class: 'update-submit',value: '次へ進む'}
+.mypage-wrapper
+  = render 'mercari/header'
+  .pankuzu ここにパンくず
+  .mypage-container
+    .logout__box
+      .logout__box__container
+        = form_for user_session_path  do |f|
+          .logout__box__container__single
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__box__container__single__btn"
+            = f.hidden_field :name, {}
+    = render 'users/mypage_sidebar'
+= render 'mercari/aside'
+= render 'mercari/footer'
+= render 'mercari/exhibit'
