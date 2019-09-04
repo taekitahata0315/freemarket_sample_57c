@@ -2,9 +2,8 @@
   @include clearfix();
   margin: 24px auto 0;
   padding: 0 0 40px;
-  main{
-    display: block;
-  }
+  display: block;
+  
   @media screen and (min-width: 768px){
   width: 700px;
   }
@@ -12,8 +11,7 @@
   margin: 40px auto 0;
   width: 1020px;
   }
-  
-}
+
   .profile__content{
     width: 100%;
     :first-child {
@@ -22,6 +20,9 @@
     @media screen and (min-width: 768px){
     float: none;
     width: 700px;
+    }
+    @media screen and (min-width: 1068px){
+      float: right;
     }
     &--chapter{
       background: #fff;
@@ -46,7 +47,7 @@
       }
       &--user{
         padding: 72px 16px 24px;
-        background-image: url("#{asset-path("brick1_04.jpg")}");
+        background-image: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?60226261");
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
@@ -99,3 +100,4 @@
           }
         }
         }
+      }

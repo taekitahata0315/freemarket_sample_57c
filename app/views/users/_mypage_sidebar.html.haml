@@ -1,7 +1,7 @@
 .sidebar
   %ul.sidebar__user
     %li
-      = link_to ('mypage'), class: 'item' do
+      = link_to mypage_index_path, class: 'item' do
         マイページ
         = fa_icon 'angle-right', class: 'icon'
     %li
@@ -69,7 +69,7 @@
   %h3.sidebar__setting-head 設定
   %ul.sidebar__setting-body
     %li
-      = link_to ('/'), class: 'item' do
+      = link_to mypage_profile_path, class: 'item' do
         プロフィール
         = fa_icon 'angle-right', class: 'icon'
     %li
@@ -77,7 +77,7 @@
         発送元・お届け先住所変更
         = fa_icon 'angle-right', class: 'icon'
     %li
-      = link_to ('/'), class: 'item' do
+      = link_to mypage_card_path, class: 'item' do
         支払い方法
         = fa_icon 'angle-right', class: 'icon'
     %li
@@ -85,7 +85,7 @@
         メール/パスワード
         = fa_icon 'angle-right', class: 'icon'
     %li
-      = link_to ('/'), class: 'item' do
+      = link_to mypage_identification_path, class: 'item' do
         本人情報
         = fa_icon 'angle-right', class: 'icon'
     %li

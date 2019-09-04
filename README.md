@@ -61,7 +61,7 @@
 - belongs_to :category
 - has_many :votes_items
 - has_many :voted_items, through: :votes, source: :item
-- has_many :image
+- has_many :image, dependent: :destroy
 - has_one :buyer
 - has_many :item_comments
 
@@ -110,7 +110,7 @@
 |itme_id|integer|null: fasle, foreign_key: true|
 
 ###Association
-- belongs_to :item
+- belongs_to :item, optional: true
 
 ## addressテーブル
 |Column|Type|Options|
