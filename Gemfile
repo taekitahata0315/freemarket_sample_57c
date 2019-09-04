@@ -81,3 +81,7 @@ gem 'mini_magick'
 gem 'devise'
 gem "aws-sdk-s3", require: false
 gem 'active_hash'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
