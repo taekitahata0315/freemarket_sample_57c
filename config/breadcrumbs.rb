@@ -7,9 +7,25 @@ crumb :mypage do
 end
 
 crumb :profile do
-  link "プロフィール", edit_user_path
+  link "プロフィール", mypage_profile_path
   parent :mypage
 end
+
+crumb :card do
+  link "クレジットカード情報", mypage_card_path
+  parent :mypage
+end
+
+crumb :info do
+  link "本人情報登録", mypage_card_path
+  parent :mypage
+end
+
+crumb :logout do
+  link "ログアウト", mercari_logout_path
+  parent :mypage
+end
+
 
 # crumb :project do |project|
 #   link project.name, project_path(project)
