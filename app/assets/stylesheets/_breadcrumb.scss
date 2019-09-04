@@ -1,0 +1,29 @@
+.breadcrumbs{
+  position: relative;
+  background: #fff;
+  border-top: 1px solid #eee;
+  ul{
+    @media screen and (min-width: 768px){
+    overflow: visible;
+    width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+    }
+    @media screen and (min-width: 1068px) {
+    width: 1020px;
+    }
+  }
+  li{
+    line-height: 1.2;
+  }
+  &-list{
+    font-size: 14px;
+      a{
+        color: black;
+      }
+        span:last-child{
+          font-weight: 600;
+        }
+  }
+}

@@ -1,0 +1,12 @@
+= render 'mercari/progress'
+.phone__main
+  .phone__section
+    %h2.phone__section__head 会員登録完了
+    = form_for  root_path,url: root_path ,html:{class: 'phone__section__form', method: "GET"} do |f|  
+      = f.hidden_field @user , name: "after_save_callback"
+      .phone__section__form__content
+        %p.phone__section__form__content-p ありがとうございます。センター 
+        %p.phone__section__form__content-p 会員登録が完了しました。
+        = f.button "メルカリをはじめる", {class: "phone__section__form__content-btn"}
+.sell-container
+  = render 'sell/footer'

@@ -20,19 +20,14 @@
 - has_many :items, dependent: :destroy
 - has_many :votes_items, dependent: :destroy
 - has_many :votes_item_items, through: :votes, source: :item
+- has_many :buyed_item, foreign_key: "buyers_id", class_name: "Item"
+- has_many :selling_item, -> {where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
+- has_many :sold_item, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :user_ratings
 - has_many :cards
 - has_many :item_comments
 - has_one :address
 - has_many :sns_credentials, dependent: :destroy
-
-## buyersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-
-###Association
-- belongs_to :item
 
 ## cardテーブル
 |Column|Type|Options|
@@ -62,11 +57,12 @@
 |image_id|integer|null: false, foreign_key: true|
 
 ###Association
-- belongs_to :user
+- belongs_to :buyers_id, class_name: 'User'
+- belongs_to :seller_id, class_name: 'User'
 - belongs_to :category
 - has_many :votes_items
 - has_many :voted_items, through: :votes, source: :item
-- has_many :image
+- has_many :image, dependent: :destroy
 - has_one :buyer
 - has_many :item_comments
 
@@ -103,7 +99,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|integer|null: false|
 |size|string|null: false|
 
 ###Association
@@ -116,7 +111,7 @@
 |itme_id|integer|null: fasle, foreign_key: true|
 
 ###Association
-- belongs_to :item
+- belongs_to :item, optional: true
 
 ## addressテーブル
 |Column|Type|Options|

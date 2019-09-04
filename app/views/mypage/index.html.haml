@@ -1,0 +1,79 @@
+= render 'mercari/header'
+- breadcrumb :mypage
+= render "layouts/breadcrumbs"
+.mypage__l-content__clearfix
+  .mypage_top__l-content
+    .mypage_top__l-content__user-icon
+      = link_to image_tag("https://www.mercari.com/jp/u/635675929/") do
+        .mypage_top__l-content__user-icon__figure 
+          = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', alt: '', height: '60', width: '60'
+        .mypage_top__l-content__bold kunsay
+        .mypage_top__l-content__number
+          .mypage_top__l-content__number__left
+            評価
+          .mypage_top__l-content__number__right
+            出品数
+    .mypage_top__l-content__todo
+      %ul.mypage_top__l-content__todo__list
+        %li.mypage_top__l-content__todo__list__left
+          = link_to do 
+            お知らせ
+        %li.mypage_top__l-content__todo__list__right
+          = link_to do 
+            やることリスト
+      .mypage_top__l-content__text
+        %ul.mypage_top__l-content__text__list
+          %li.mypage_top__l-content__text__list__1
+            = link_to do 
+              .mypage_top__l-content__text__list__1__figure
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png', alt: '', height: '48', width: '48', class: 'mypage-itme-link'
+              .mypage_top__l-content__text__list__1__btx 
+                事務局から個別メッセージ「ログイン通知」
+                %i.fa.fa-arrow-right
+          %li.mypage_top__l-content__text__list__2
+            = link_to do 
+              .mypage_top__l-content__text__list__2__figure
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png', alt: '', height: '48', width: '48', class: 'mypage-itme-link'
+              .mypage_top__l-content__text__list__2__btx 
+                事務局から個別メッセージ「新商品が昨日より10万品以上増えてます！ 欲しかった物が見つかるかも♪」
+                %i.fa.fa-arrow-right
+          %li.mypage_top__l-content__text__list__3
+            = link_to do 
+              .mypage_top__l-content__text__list__3__figure
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png', alt: '', height: '48', width: '48', class: 'mypage-itme-link'
+              .mypage_top__l-content__text__list__3__btx 
+                事務局から個別メッセージ「ログイン通知」
+                %i.fa.fa-arrow-right
+          %li.mypage_top__l-content__text__list__4
+            = link_to do 
+              .mypage_top__l-content__text__list__4__figure
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png', alt: '', height: '48', width: '48', class: 'mypage-itme-link'
+              .mypage_top__l-content__text__list__4__btx 
+                事務局から個別メッセージ「ログイン通知」
+                %i.fa.fa-arrow-right
+          %li.mypage_top__l-content__text__list__5
+            = link_to do 
+              .mypage_top__l-content__text__list__5__figure
+                = image_tag 'https://static.mercdn.net/images/mercari_profile.png', alt: '', height: '48', width: '48', class: 'mypage-itme-link'
+              .mypage_top__l-content__text__list__5__btx 
+                事務局から個別メッセージ「ログイン通知」
+                %i.fa.fa-arrow-right
+          %li.mypage_top__l-content__text__list-go-list
+            = link_to do 
+              一覧を見る
+      .mypage_top__l-content__trade
+        %h2.mypage_top__l-content__trade__head 購入した商品
+        %ul.mypage_top__l-content__trade__list
+          %li.mypage_top__l-content__trade__list__left
+            = link_to do 
+              取引中
+          %li.mypage_top__l-content__trade__list__right
+            = link_to do 
+              過去の取引
+        %ul.mypage_top__l-content__trade__text__list
+          %li.mypage_top__l-content__trade__text__list__1
+            取引中の商品がありません
+  = render 'users/mypage_sidebar'
+= render 'mercari/aside'
+= render 'mercari/footer'
+= render 'mercari/exhibit'

@@ -4,7 +4,7 @@
   .login__main__section
     .login__main__section__no-account
       %p.login__main__section__no-account__head アカウントをお持ちでない方はこちら
-      = link_to '新規会員登録' , new_user_registration_path, class: "login__main__section__no-account__link"
+      = link_to '新規会員登録' , '/', class: "login__main__section__no-account__link"
     .login__main__section__body
       %button#facebook_login.btn
         = fa_icon 'facebook-square', class: 'facebook'

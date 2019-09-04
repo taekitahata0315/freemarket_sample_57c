@@ -1,0 +1,15 @@
+.pankuzu{
+  background-color: aqua;
+  height: 49px;
+}
+.mypage-container{
+  padding: 0 0 40px;
+  @include clearfix();
+  @media screen and (min-width: 768px){
+    width: 700px;
+  }
+  @media screen and (min-width: 1068px){
+      margin: 40px auto 0;
+      width: 1020px;
+  }
+}

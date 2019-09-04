@@ -1,0 +1,15 @@
+.mypage-wrapper
+  = render 'mercari/header'
+  - breadcrumb :logout
+  = render "layouts/breadcrumbs"
+  .mypage-container
+    .logout__box
+      .logout__box__container
+        = form_for user_session_path  do |f|
+          .logout__box__container__single
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout__box__container__single__btn"
+            = f.hidden_field :name, {}
+    = render 'users/mypage_sidebar'
+= render 'mercari/aside'
+= render 'mercari/footer'
+= render 'mercari/exhibit'

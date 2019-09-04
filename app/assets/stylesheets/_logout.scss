@@ -1,0 +1,38 @@
+.logout__box{
+  width: 100%;
+  @media screen and(min-width: 768px){
+    float: none;
+    width: 700px;
+  }
+  @media screen and(min-width: 1068px){
+    float: right;
+  }
+  &__container{
+    background: #fff;
+    margin: 0;
+    form{
+      border-top: 1px solid #f5f5f5;
+      padding: 40px;
+      @media screen and(min-width: 768px){
+        padding: 64px;
+      }
+    }
+    &__single{
+      max-width: 320px;
+      margin: 0 auto;
+      &__btn{
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all;
+        cursor: pointer;
+        text-align: center;
+        background: #ea352d;
+        border: #ea352d;
+        color: #fff;
+        margin: 0;
+      }
+    }
+  }
+}
