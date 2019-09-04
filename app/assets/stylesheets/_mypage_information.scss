@@ -1,3 +1,7 @@
+.fix_m{
+  margin: 40px auto 0;
+  width: 1020px;
+  @include clearfix();
 .mypage-information{
   background-color: #fff;
   @media screen and (min-width: 768px) {
@@ -175,4 +179,4 @@
     opacity: .7;
   }
 }
-
+}

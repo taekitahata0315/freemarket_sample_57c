@@ -1,4 +1,4 @@
-= render 'header'
+= render 'mercari/header'
 %main.wrap.clearfix
   %div.profile__content
     %section.profile__content--chapter
@@ -10,10 +10,10 @@
             = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png',  height: '60', width: '60'
           %input{type: "text", value:"", name:"", placeholder:"例)natee ふわふわタイム", class: 'input-box'}
         %div.profile__content--chapter--comment
-          = form_for( "") do |f|
+          = form_for("") do |f|
             = f.text_area :name ,name: "introduction",class:"textarea-box", placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
             .input{type:"hidden", value:"", name:""}
             = f.submit "変更", class: "btn-default btn-red"
-  = render './user/mypage_sidebar'
-= render './mercari/aside'
-= render './mercari/footer'
+  = render '/users/mypage_sidebar'
+= render '/mercari/aside'
+= render '/mercari/footer'

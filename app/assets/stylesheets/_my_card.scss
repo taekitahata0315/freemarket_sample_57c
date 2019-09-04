@@ -26,7 +26,6 @@ label{
 .my_card{
   width: 700px;
   margin: 0 auto;
-}
 .card{
   @include clearfix();
   margin: 24px auto 0;
@@ -236,3 +235,4 @@ label{
         .left{
           margin-left: 15px;
         }
+      }

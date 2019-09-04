@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'signup/adress', to: 'signup#address'
   get 'signup/card', to: 'signup#card'
   get 'signup/complete', to: 'signup#complete'
+  get 'mypage/card', to: 'mypage#card'
+  get 'mypage/identification', to: 'mypage#info'
+  get 'mypage/profile', to: 'mypage#profile'
   resources :mypage
   resources :users, only: [:show ,:index]
 end
