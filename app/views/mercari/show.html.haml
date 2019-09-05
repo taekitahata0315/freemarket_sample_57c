@@ -34,7 +34,7 @@
       %span.details__item__main__price__fee "送料"
     .visible
       .visible__btn
-        = link_to "購入画面に進む", "/", class: "visible__btn__link"
+        = link_to "購入画面に進む", sell_comfirm_path, class: "visible__btn__link"
     %table.details__item__main__table
       %tbody
         %tr
@@ -77,7 +77,7 @@
     %span.details__item__price__bold @値段
     %span.details__item__price__tax (税込)
     %span.details__item__price__fee @送料負担参照
-  = link_to "購入画面に進む",'/', class: "buy-btn"
+  = link_to "購入画面に進む",sell_comfirm_path, class: "buy-btn"
   .details__item__description.14f
     %p.details__item__description__inner @アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント
   .details__item__container.clearfix

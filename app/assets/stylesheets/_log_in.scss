@@ -44,27 +44,30 @@
         padding: 32px 64px;
       }
       #facebook_login{
+        margin: 0;
+        background: #385185;
+        color: #fff;
+        position: relative;
         display: block;
         width: 100%;
         line-height: 48px;
         font-size: 14px;
         border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
         cursor: pointer;
         text-align: center;
-        position: relative;
-        background: #385185;
-        color: #fff;
-        margin: 0;
         .facebook{
-          font-size: 30px;
+          color: #fff;
+          background: #385185;
           position: absolute;
           top: 50%;
           left: 16px;
           -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-        }
+          font-size: 28px;
       }
+    }
       #google_login{
         position: relative;
         margin: 16px 0 0;

@@ -10,10 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
       super
       sns = SnsCredential.update(user_id:  @user.id)
     else
-
       super
     end
   end
+
+  protected 
+  
+  def after_sign_up_path_for(resource)
+      signup_phone_path
+  end
+
   
 
   # before_action :configure_sign_up_params, only: [:create]
