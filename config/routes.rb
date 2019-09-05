@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',registrations: 'users/registrations' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',registrations: 'users/registrations' } 
   root 'mercari#index'  
   get 'mercari/logout', to: 'mercari#logout'
   resources :mercari
@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get 'mypage/identification', to: 'mypage#info'
   get 'mypage/profile', to: 'mypage#profile'
   resources :mypage
-  resources :users, only: [:show ,:index]
+  resources :users, only: [:show ,:index] do
+    resources :items
+  end
+
 end
 
 
