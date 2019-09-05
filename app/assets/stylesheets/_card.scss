@@ -13,16 +13,7 @@ label{
   display: inline-block;
 }
 
-.fa-chevron-down{
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  z-index: 2;
-  color: #888;
-  font-size: 8px;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-}
+
 
 .card{
   @include clearfix();
@@ -145,6 +136,18 @@ label{
             font-size: 14px;
           }
         }
+          .fa-chevron-down{
+            top:11px;
+            margin: 0 6px 0 -15px;
+            position: relative;
+            right: 16px;
+            z-index: 2;
+            color: #888;
+            font-size: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        
         .signup-form-expire,.select-wrapper select{
           width: calc(100% - 38px);
         }
@@ -174,7 +177,7 @@ label{
     line-height: 1.5;
     cursor: pointer;
         }
-        .signup-form-expire,.select-wrapper,.fa-chevron-down{
+        .signup-form-expire,.select-wrapper{
           font-size: 10px;
           margin: 0 6px 0 -15px;
           position: relative;
