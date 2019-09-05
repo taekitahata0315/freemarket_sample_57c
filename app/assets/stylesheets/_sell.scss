@@ -91,43 +91,18 @@
                     width: 620px;
                   }
                   #preview, #preview2{
-                    float: left;
                     display: block;
-                  }
-                  .img_view{
-                    background: #f5f5f5;
-                    float: left;
-                    @media screen and (min-width: 768px){
+                    .img_view{
+                      -webkit-box-flex: 1;
+                      -ms-flex: 1;
+                      flex: 1;
+                      display: inline;
                       width: 116px;
                       margin: 0 0 10px 10px;
+                      @media screen and(min-width: 768px){
+                        float: left;
+                        display: block;
                       }
-                  figure{
-                    height: 116px;
-                    width: auto;
-                    line-height: 116px;
-                  img{
-                    width: 100%;
-                    position: relative;
-                    display: inline-block;
-                    border: 1px solid #eee;
-                  }
-                }
-                    .btn_wrapper{
-                      font-size: 14px;
-                      .btn{
-                        display: inline-block;
-                        width: 50%;
-                        
-                        line-height: 44px;
-                        text-align: center;
-                      }
-                    }
-                  }
-                  .img_view:first-child{
-                    margin-left: 0;
-                  }
-                  .upload{
-                    display: inline;
                       figure{
                         position: relative;
                         overflow: hidden;
@@ -157,10 +132,8 @@
                     text-align: center;
                   }
                 }
-                label{
-                  width: 100%;
-                }
                   .have-item{
+                    width: 100%;
                     margin-left: 0;
                     #upload-image{
                       display: none;
@@ -189,7 +162,6 @@
                       float: right;
                       width: 620px;
                     }
-
                     label{
                       width: 100%;
                       height: 100%;
