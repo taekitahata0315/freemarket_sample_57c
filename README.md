@@ -44,12 +44,12 @@
 |------|----|-------|
 |name|string|null: false|
 |postage|string|null: false|
-|region|string|null:|false|
+|region|string|null: false|
 |shipping_date|string|null: false|
 |way|string|null: false|
 |seller_id|integer|null: false, foreign_key: true|
-|buyers_id|integer|foreign_key: true|
-|categorys_id|integer|null: false|
+|buyer_id|integer|foreign_key: true|
+|categorys_id|integer|
 |price|integer|null: false|   
 |state|string|null: false|
 |description|text|
@@ -62,7 +62,7 @@
 - belongs_to :category
 - has_many :votes_items
 - has_many :voted_items, through: :votes, source: :item
-- has_many :image, dependent: :destroy
+- has_many :images, dependent: :destroy
 - has_one :buyer
 - has_many :item_comments
 
