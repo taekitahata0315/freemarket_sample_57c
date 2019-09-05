@@ -5,29 +5,29 @@
       %h2.signin__main__section__head 新規会員登録
       .signin__main__section__body
         .signin__main__section__body__content
-          = link_to  new_user_session_path , class: "signin__main__section__body__content__link btn" do
+          = link_to  new_user_registration_path , class: "signin__main__section__body__content__link btn" do
             = fa_icon 'envelope', class: 'mail'
             メールアドレスで登録する
-          %button#facebook_signin.btn
+          = link_to user_facebook_omniauth_authorize_path, id: "facebook_signin", class: "btn" do
             = fa_icon 'facebook-square', class: 'facebook'
             Facebookで登録する
-          %button#google_signin.btn
+          = link_to user_google_oauth2_omniauth_authorize_path, id: "google_signin", class: "btn" do
             = fa_icon 'google', class: 'google'
             Googleで登録する
-    = form_for root_path, html:{class: "log_in_facebook"} do |f|
-      = f.hidden_field :name, {name: "__csrf_value"}
-      = f.hidden_field :name, {name: "nickname"}
-      = f.hidden_field :name, {name: "email"}
-      = f.hidden_field :name, {name: "facebook_user_id"}
-      = f.hidden_field :name, {name: "facebook_access_token"}
-      = f.hidden_field :name, {name: "login_type", value: "facebook"}
-    = form_for root_path, html:{class: "log_in_google"} do |f|
-      = f.hidden_field :name, {name: "__csrf_value"}
-      = f.hidden_field :name, {name: "nickname"}
-      = f.hidden_field :name, {name: "email"}
-      = f.hidden_field :name, {name: "facebook_user_id"}
-      = f.hidden_field :name, {name: "facebook_access_token"}
-      = f.hidden_field :name, {name: "login_type", value: "google"}
-    %imput{type: "hidden", id: "google_client_id"}
-    %imput{type: "hidden", id: "facebook_app_id"}
+    -# = form_for root_path, html:{class: "log_in_facebook"} do |f|
+    -#   = f.hidden_field :name, {name: "__csrf_value"}
+    -#   = f.hidden_field :name, {name: "nickname"}
+    -#   = f.hidden_field :name, {name: "email"}
+    -#   = f.hidden_field :name, {name: "facebook_user_id"}
+    -#   = f.hidden_field :name, {name: "facebook_access_token"}
+    -#   = f.hidden_field :name, {name: "login_type", value: "facebook"}
+    -# = form_for root_path, html:{class: "log_in_google"} do |f|
+    -#   = f.hidden_field :name, {name: "__csrf_value"}
+    -#   = f.hidden_field :name, {name: "nickname"}
+    -#   = f.hidden_field :name, {name: "email"}
+    -#   = f.hidden_field :name, {name: "facebook_user_id"}
+    -#   = f.hidden_field :name, {name: "facebook_access_token"}
+    -#   = f.hidden_field :name, {name: "login_type", value: "google"}
+    -# %imput{type: "hidden", id: "google_client_id"}
+    -# %imput{type: "hidden", id: "facebook_app_id"}
   = render 'sell/footer'

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'mercari#index'  
   get 'mercari/logout', to: 'mercari#logout'
   resources :mercari
+  get 'sell/comfirm', to: 'sell#comfirm'
   resources :sell
   get 'signup/signup', to: 'signup#sign_up'
   get 'signup/phone', to: 'signup#phone'

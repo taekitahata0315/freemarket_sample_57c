@@ -56,8 +56,6 @@
         =render 'item'
       .view-all
         = link_to 'すべての商品を見る'
-  - if user_signed_in?
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
 = render 'aside'
 = render 'footer'
 = render 'exhibit'
