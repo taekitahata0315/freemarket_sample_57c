@@ -27,6 +27,7 @@
 - has_many :cards
 - has_many :item_comments
 - has_one :address
+- has_many :sns_credentials, dependent: :destroy
 
 ## cardテーブル
 |Column|Type|Options|
@@ -123,3 +124,13 @@
 
 ###Association
 - belongs_to :user
+
+## sns_credentialテーブル
+|Column|Type|Options|
+|------|----|-------|
+uid|string|
+provider|string|
+user_id|integer|foreign_key: true|
+
+###Association
+- belongs_to :user, optional: true

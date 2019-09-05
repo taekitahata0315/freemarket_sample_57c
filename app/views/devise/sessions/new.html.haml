@@ -6,26 +6,24 @@
       %p.login__main__section__no-account__head アカウントをお持ちでない方はこちら
       = link_to '新規会員登録' , new_user_registration_path, class: "login__main__section__no-account__link"
     .login__main__section__body
-      %button#facebook_login.btn
+      = link_to user_facebook_omniauth_authorize_path, id:"facebook_login", class: "btn" do
         = fa_icon 'facebook-square', class: 'facebook'
         Facebookでログイン
-      %button#google_login.btn
+      = link_to user_google_oauth2_omniauth_authorize_path, id: "google_login", class: "btn" do
         = fa_icon 'google', class: 'google'
         Googleでログイン
-    = form_for root_path ,html:{class: "login__main__section__form"} do |f|
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login__main__section__form__body
         .login__main__section__form__body__groups
-          = f.email_field "@メールアドレス", placeholder: "メールアドレス", class: "email_pass input-field"
+          = f.email_field :email, placeholder: "メールアドレス", class: "email_pass input-field"
         .login__main__section__form__body__groups
-          = f.password_field "@パスワード", placeholder: "パスワード", class: "email_pass input-field"
+          = f.password_field :password, placeholder: "パスワード", class: "email_pass input-field"
         .login__main__section__form__body__groups
           .login__main__section__form__body__groups__group
             .login__main__section__form__body__groups__group__style
               %div.lobo
                 %iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1565591531251&size=normal&cb=uwyu6f67uqvl" frameborder="0" width="304" height="78" class="lobo")
         = f.button "ログイン", class: "login__main__section__form__body__btn btn"
-        = f.hidden_field :name, {name: "login_callback", value: "/jp/"}
-        = f.hidden_field :name, {name: "__csrf_value"}
         = link_to 'パスワードをお忘れの方', '/', class: "link_a"
 .sell-container
   = render 'sell/footer'

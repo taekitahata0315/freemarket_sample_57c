@@ -1,6 +1,7 @@
 .mypage-wrapper
   = render 'mercari/header'
-  .pankuzu ここにパンくず
+  - breadcrumb :logout
+  = render "layouts/breadcrumbs"
   .mypage-container
     .logout__box
       .logout__box__container

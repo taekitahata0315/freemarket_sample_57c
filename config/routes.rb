@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',registrations: 'users/registrations' }
   root 'mercari#index'  
   get 'mercari/logout', to: 'mercari#logout'
   resources :mercari
+  get 'sell/comfirm', to: 'sell#comfirm'
   resources :sell
   get 'signup/signup', to: 'signup#sign_up'
   get 'signup/phone', to: 'signup#phone'

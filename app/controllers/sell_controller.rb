@@ -11,4 +11,10 @@ class SellController < ApplicationController
 
   def buy
   end
+
+  def comfirm
+  end
+
+  def show
+  end
 end
