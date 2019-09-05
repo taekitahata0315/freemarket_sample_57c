@@ -82,95 +82,67 @@
                   margin: 8px 0 0;
                   line-height: 1.5;
                 }
-                &-dropbox{
+                .dropzone-container{
+                  @include clearfix();
                   display: inline;
                   margin: 16px auto 0;
                   @media screen and(min-width: 768px){
                     display: block;
                     width: 620px;
                   }
-                  &_upload{
-                    display: inline;
-                    &_items{
+                  #preview, #preview2{
+                    display: block;
+                    .img_view{
                       -webkit-box-flex: 1;
                       -ms-flex: 1;
                       flex: 1;
                       display: inline;
+                      width: 116px;
+                      margin: 0 0 10px 10px;
                       @media screen and(min-width: 768px){
                         float: left;
                         display: block;
                       }
-                      &-item{
-                        box-sizing: inherit;
-                        display: inline;
-                        width: 100%;
-                        @media screen and(min-width: 768px){
-                          display: block;
-                        }
-                      &_li:first-child{
+                      figure{
+                        position: relative;
+                        overflow: hidden;
+                        padding: 0 0 100%;
+                        background: #f5f5f5;
+                        width: auto;
+                        padding: 0;
+                        height: 116px;
+                        line-height: 116px;
+                        border-bottom: 1px solid #333;
+                      figure:first-child{
                         margin-left: 0;
                       }
-                      &_li{
-                        position: relative;
-                        display: inline-block;
-                        width: 18%;
-                        margin: 0 0 2% 2%;
-                        border: 1px soli #eee;
-                        vertical-align: top;
-                        @media screen and(min-width: 768px){
-                          width: 116px;
-                          margin: 0 0 10px 10px;
-                        }
-                        &_figure{
-                          position: relative;
-                          overflow: hidden;
-                          width: 100%;
-                          height: 0;
-                          padding: 0 0 100%;
-                          background: #f5f5f5;
-                          @media screen and(min-width: 768px){
-                            width: auto;
-                            height: auto;
-                            padding: 0;
-                            height: 116px;
-                            line-height: 116px;
-                          }
-                          img{
-                            cursor: default;
-                            position: absolute;
-                            top: 50%;
-                            left: 0;
-                            width: 100%;
-                            @media screen and(min-width: 768px){
-                              position: static;
-                              transform: none;
-                            }
-                          }
-                        }
-                        &_btn{
-                          font-size: 14px;
-                          a:last-child{
-                            border-left: 1px solid #eee;
-                            float: right;
-                          }
-                          a{
-                            display: inline-block;
-                            width: 50%;
-                            background: #f5f5f5;
-                            line-height: 44px;
-                            text-align: center;
-                          }
-                          
-                        }
+                      img{
+                        width: 100%;
                       }
                     }
+                  }
+                  .img_view:first-child, .img_view:nth-child(6){
+                    margin-left: 0;
+                  }
+                  .btn{
+                    display: inline-block;
+                    width: 50%;
+                    background: #f5f5f5;
+                    line-height: 44px;
+                    text-align: center;
                   }
                 }
                   .have-item{
                     width: 100%;
                     margin-left: 0;
+                    #upload-image{
+                      display: none;
+                    }
                   }
-                  &_drop{
+                  .drop2{
+                    display: none;
+                  }
+                  .drop, .drop2{
                     position: relative;
                     min-height: 162px;
                     background: #f5f5f5;
@@ -189,14 +161,14 @@
                     @media screen and(min-width: 768px){
                       float: right;
                       width: 620px;
-                      padding: 40px;
                     }
-                    &_file{
-                      display: none;
-                      border: 0;
-                      outline: 0;
-                      font-family: inherit;
-                      -webkit-appearance: none;
+                    label{
+                      width: 100%;
+                      height: 100%;
+                    }
+                    .input_area{
+                      min-height: 162px;
+                      width: 100%;
                     }
                     .visible-pc{
                       display: none;
@@ -204,7 +176,7 @@
                         display: block;
                       }
                     }
-                    pre{
+                    p{
                       @media screen and(min-width: 768px){
                         position: absolute;
                         top: 50%;
@@ -233,10 +205,8 @@
                   }
                 }
               }
-              .height{
-                height: 250px;
-              }
               &-sell{
+                @include clearfix();
                 padding: 40px;
                 border-top: 1px solid #eee;
                 &-box:first-child{
@@ -244,10 +214,6 @@
                 }
                 &-box{
                   margin: 40px 0 0;
-                  label{
-                    font-weight: 600;
-                    display: inline-block;
-                  }
                   &-require{
                     @include require();
                   }
