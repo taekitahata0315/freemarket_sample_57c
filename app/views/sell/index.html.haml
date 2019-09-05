@@ -12,14 +12,22 @@
                 %h3.sell-main-container-item-box-data-form-content-head
                   出品画像
                   %span.sell-main-container-item-box-data-form-content-head-require.require 必須
-                %p 最大10枚までアップロードできます
-                .sell-main-container-item-box-data-form-content-dropbox.clearfix
-                  .sell-main-container-item-box-data-form-content-dropbox_upload
-                    .sell-main-container-item-box-data-form-content-dropbox_upload_items
-                  .sell-main-container-item-box-data-form-content-dropbox_drop.have-item
-                    = f.file_field @sell, class: 'sell-main-container-item-box-data-form-content-dropbox_drop_file', multiple: '', name: 'image2'
-                    %pre.visible-pc ドラッグアンドドロップ またはクリックしてファイルをアップロード
-                    = fa_icon 'camera', class: "sell-main-container-item-box-data-form-content-dropbox_drop_camera"
+                = f.fields_for :item_images do |image|
+                  .dropzone-container.clearfix
+                    #preview
+                    .drop.have-item
+                      = image.label :image, class: "dropzone-box", for: "upload-image" do
+                        .input_area
+                          = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                          %p.visible-pc ドラッグアンドドロップ またはクリックしてファイルをアップロード
+                          = fa_icon 'camera', class: "sell-main-container-item-box-data-form-content-dropbox_drop_camera"
+                    #preview2
+                    .drop2.have-item
+                      = image.label :image, class: "dropzone-box", for: "upload-image" do
+                        .input_area
+                          = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                          %p.visible-pc ドラッグアンドドロップ またはクリックしてファイルをアップロード
+                        = fa_icon 'camera', class: "sell-main-container-item-box-data-form-content-dropbox_drop_camera"
               .sell-main-container-item-box-data-form-sell.clearfix
                 .sell-main-container-item-box-data-form-sell-box
                   %label
