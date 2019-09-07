@@ -13,7 +13,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :state,                 null: false
       t.text :description 
       t.integer :votes_item_id,        foreign_key: true
-      t.integer :image_id,             null: false, foreign_key: true
 
       t.timestamps
     end
