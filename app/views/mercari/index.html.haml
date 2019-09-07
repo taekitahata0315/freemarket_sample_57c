@@ -50,10 +50,7 @@
       %h3.pickup_main-content-title 
         = link_to "レディース 新着アイテム"
       .pickup_main-content-items.clearfix
-        =render 'item'
-        =render 'item'
-        =render 'item'
-        =render 'item'
+        =render 'item' , collection: @item
       .view-all
         = link_to 'すべての商品を見る'
 = render 'aside'

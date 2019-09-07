@@ -1,0 +1,23 @@
+.items__user__container__content
+  - @items.each do |item|
+    -if @item.seller.id == item.seller.id
+      .items__user__container__content__box
+        = link_to mercari_path(item.id) do
+          .items__user__container__content__box__photo
+            - if @item.images.attached?
+              - item.images.each do |image|
+                - if image.record_id == item.id
+                  = image_tag  image, size: "220x220"
+          -#   %figcaption
+          -#     .items__user__container__content__box__photo__sold.after
+          -#       %div SOLD    //SOLD中の状態を実装していないため
+          .items__user__container__content__box__body
+            %h3.items__user__container__content__box__body__name
+              = item.name
+            .items__user__container__content__box__body__num
+              .items__user__container__content__box__body__num__price
+                ¥
+                = item.price
+              .icon
+                = fa_icon 'heart'
+                %spna 4

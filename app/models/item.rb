@@ -5,4 +5,14 @@ class Item < ApplicationRecord
   has_many :votes_items
   has_many :voted_items, through: :votes, source: :item
   has_many_attached :images
+  
+
+  def previous
+    Item.order('created_at desc').where("created_at < ?", created_at).first
   end
+
+  def next
+    Item.order('created_at desc').where('created_at > ? ', created_at).reverse.first
+  end
+
+end

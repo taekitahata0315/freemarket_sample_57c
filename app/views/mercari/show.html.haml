@@ -1,21 +1,29 @@
 = render 'mercari/header'
 .details__item
   %h1.details__item__name
-    @商品名
+    = @item.name
   %p.details__item__wording
-    @商品名は@取引回数の取引実績をもつ
-    = link_to "@user_name", "/" 
+    = @item.name
+    は@取引回数の取引実績をもつ
+    = link_to @item.seller.nickname, "/" 
     さんから出品されました。
     = link_to "@カテゴリー", "/"
-    の商品で、"ユーザーの地域"から"発送期日"で発送されます。
+    の商品で、
+    = @item.region
+    から
+    = @item.shipping_date
+    されます。
   .details__item__main
     .details__item__main__photo
       .details__item__main__photo__owl
         .details__item__main__photo__owl__outer
-          .details__item__main__photo__owl__outer__stage
-            .details__item__main__photo__owl__outer__stage__item.active
-              .details__item__main__photo__owl__outer__stage__item__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_1.jpg?1563712554', class: 'item_image'
+          - if @item.images.attached?
+            - @item.images.each do |image|
+              - if image.record_id == @item.id
+                .details__item__main__photo__owl__outer__stage
+                  .details__item__main__photo__owl__outer__stage__item.active
+                    .details__item__main__photo__owl__outer__stage__item__inner
+                      = image_tag image, class: 'item_image'
         .details__item__main__photo__owl__disabled
           .details__item__main__photo__owl__disabled__prev prev
           .details__item__main__photo__owl__disabled__next next
@@ -29,9 +37,11 @@
             .details__item__main__photo__owl__dots__dot__inner
               = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_2.jpg?1563712554'
     .details__item__main__price
-      %span.details__item__main__price__bold "値段"
-      %span.details__item__main__price__tax "(税込)"
-      %span.details__item__main__price__fee "送料"
+      %span.details__item__main__price__bold
+        = @item.price
+      %span.details__item__main__price__tax (税込)
+      %span.details__item__main__price__fee
+        = @item.postage
     .visible
       .visible__btn
         = link_to "購入画面に進む", sell_comfirm_path, class: "visible__btn__link"
@@ -40,7 +50,7 @@
         %tr
           %th 出品者
           %td
-            = link_to "@出品者名"
+            = link_to @item.seller.nickname
             %div
               .user__ratings
                 = fa_icon "smile-o", class: "raiting__icon"
@@ -59,27 +69,34 @@
           %td @アイテムのブランド
         %tr
           %th 商品の状態
-          %td @商品の状態
+          %td 
+            = @item.state
         %tr
           %th 配送料の負担
-          %td @配送料の負担
+          %td 
+            = @item.postage
         %tr
           %th 配送の方法
-          %td @配送方法
+          %td 
+            = @item.way
         %tr
           %th 配送元地域
           %td
-            = link_to "該当地域タグ検索へ@地域" ,"/"
+            = link_to @item.region ,"/"
         %tr
           %th 発送日の目安
-          %td @発送日
+          %td 
+            = @item.shipping_date
   .details__item__price
-    %span.details__item__price__bold @値段
+    %span.details__item__price__bold
+      = @item.price
     %span.details__item__price__tax (税込)
-    %span.details__item__price__fee @送料負担参照
+    %span.details__item__price__fee
+      = @item.postage
   = link_to "購入画面に進む",sell_comfirm_path, class: "buy-btn"
   .details__item__description.14f
-    %p.details__item__description__inner @アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント@アイテムコメント
+    %p.details__item__description__inner 
+      = @item.description
   .details__item__container.clearfix
     .details__item__container__left
       = link_to '/',class: 'icon_btn icon_link' do
@@ -97,13 +114,15 @@
   .details__message__space
 %ul.nav__item
   %li.nav__item__prev
-    = link_to "/" do
-      = fa_icon 'chevron-left'
-      @アイテムID一つ前
+    - if @item.previous.present?
+      = link_to mercari_path(@item.previous.id) do
+        = fa_icon 'chevron-left'
+        = @item.previous.name
   %li.nav__item__next
-    = link_to '/' do
-      @アイテムID一つ次
-      = fa_icon 'chevron-right'
+    - if @item.next.present?
+      = link_to mercari_path(@item.next.id) do
+        = @item.next.name
+        = fa_icon 'chevron-right'
 .social__icon
   .social__icon__text
     .social__icon__text__script
@@ -123,54 +142,27 @@
 .items__user
   .items__user__container
     %h2.items__user__container__head
-      = link_to "@ユーザー名 さんのその他の出品", "/"
-    .items__user__container__content
-      .items__user__container__content__box
-        = link_to '/' do
-          .items__user__container__content__box__photo
-            = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_1.jpg?1563712554'
-            %figcaption
-              .items__user__container__content__box__photo__sold.after
-                %div SOLD
-          .items__user__container__content__box__body
-            %h3.items__user__container__content__box__body__name
-              @アイテム名
-            .items__user__container__content__box__body__num
-              .items__user__container__content__box__body__num__price
-                ¥@アイテム値段
-              .icon
-                = fa_icon 'heart'
-                %spna 4
-      .items__user__container__content__box
-        = link_to '/' do
-          .items__user__container__content__box__photo
-            = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_1.jpg?1563712554'
-          .items__user__container__content__box__body
-            %h3.items__user__container__content__box__body__name
-              @アイテム名
-            .items__user__container__content__box__body__num
-              .items__user__container__content__box__body__num__price
-                ¥@アイテム値段
-              .icon
-                = fa_icon 'heart'
-                %spna 3
-  .items__user__container
-    %h2.items__user__container__head
-      = link_to "@同カテゴリーの出品アイテム", '/'
-    .items__user__container__content.clearfix
-      .items__user__container__content__box
-        = link_to '/' do
-          .items__user__container__content__box__photo
-            = image_tag 'https://static.mercdn.net/thumb/photos/m27044606903_1.jpg?1567147725'
-          .items__user__container__content__box__body
-            %h3.items__user__container__content__box__body__name
-              @アイテム名
-            .items__user__container__content__box__body__num
-              .items__user__container__content__box__body__num__price
-                ¥@アイテム値段
-              .icon
-                = fa_icon 'heart'
-                %spna 5
+      = link_to  "/" do
+        = @item.seller.nickname 
+        さんのその他の出品
+  = render 'mercari/user_items'
+.items__user__container
+  %h2.items__user__container__head
+    = link_to "@同カテゴリーの出品アイテム", '/'
+  .items__user__container__content.clearfix
+    .items__user__container__content__box
+      = link_to '/' do
+        .items__user__container__content__box__photo
+          = image_tag 'https://static.mercdn.net/thumb/photos/m27044606903_1.jpg?1567147725'
+        .items__user__container__content__box__body
+          %h3.items__user__container__content__box__body__name
+            @アイテム名
+          .items__user__container__content__box__body__num
+            .items__user__container__content__box__body__num__price
+              ¥@アイテム値段
+            .icon
+              = fa_icon 'heart'
+              %spna 5
 %nav.bread-crumbs
   %ul
     %li{}
@@ -178,6 +170,7 @@
         %span{itemprop: "title"} メルカリ
       = fa_icon 'chevron-right'
     %li{}
-      %span{itemprop: "title"} @アイテム名
+      %span{itemprop: "title"}
+        = @item.name
 = render 'mercari/aside'
 = render 'mercari/footer'
