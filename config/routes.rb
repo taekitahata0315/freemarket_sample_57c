@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   get 'mypage/identification', to: 'mypage#info'
   get 'mypage/profile', to: 'mypage#profile'
   resources :mypage
-  resources :users, only: [:show ,:index] do
-    resources :items
-  end
+  resources :users, only: [:show ,:index]
+  resources :items
 
 end
 

@@ -23,7 +23,6 @@ $(function(){
     images.push(img);
 
     if(images.length >= 5) {
-      $('#preview2').empty();
       drop2.css({
         'display': 'block'
       })
@@ -59,7 +58,7 @@ $(function(){
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="product_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+    var new_image = $(`<input multiple= "true" name="item[images][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {

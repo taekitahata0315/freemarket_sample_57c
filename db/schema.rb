@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2019_09_05_110344) do
     t.string "state", null: false
     t.text "description"
     t.integer "votes_item_id"
-    t.integer "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
