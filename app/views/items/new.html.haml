@@ -1,0 +1,170 @@
+.sell-container
+  =render 'sell/header'
+  .sell-main
+    %section.sell-main-container.sell-main-item
+      .sell-main-container-item
+        .sell-main-container-item-box
+          .sell-main-container-item-box-data
+            %h2.sell-main-container-item-box-data-head
+              商品の情報を入力
+            = form_for @item ,html:{class: 'sell-main-container-item-box-data-form'} do |f|
+              .sell-main-container-item-box-data-form-content
+                %h3.sell-main-container-item-box-data-form-content-head
+                  出品画像
+                  %span.sell-main-container-item-box-data-form-content-head-require.require 必須
+                .dropzone-container.clearfix
+                  #preview
+                  .drop.have-item
+                    = f.label :images, class: "dropzone-box", for: "upload-image" do
+                      .input_area
+                        =f.file_field :images, multiple: true, name: 'item[images][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                        %p.visible-pc ドラッグアンドドロップ またはクリックしてファイルをアップロード
+                        = fa_icon 'camera', class: "sell-main-container-item-box-data-form-content-dropbox_drop_camera"
+                  #preview2
+                  .drop2.have-item
+                    = f.label :image, class: "dropzone-box", for: "upload-image" do
+                      .input_area
+                        = f.file_field :image, multiple: true, id: "upload-image",name: 'item[images][]', class: "upload-image", 'data-image': 0
+                        %p.visible-pc ドラッグアンドドロップ またはクリックしてファイルをアップロード
+                      = fa_icon 'camera', class: "sell-main-container-item-box-data-form-content-dropbox_drop_camera"
+              .sell-main-container-item-box-data-form-sell.clearfix
+                .sell-main-container-item-box-data-form-sell-box
+                  %label
+                    商品名
+                    %span.sell-main-container-item-box-data-form-sell-box-require.require 必須
+                  %div
+                    = f.text_field :name, class: "field f", placeholder: "商品名（必須 40文字まで)"
+                .sell-main-container-item-box-data-form-sell-box
+                  %label
+                    商品の説明
+                    %span.sell-main-container-item-box-data-form-sell-box-require 必須
+                  = f.text_area :description, placeholder: "商品の説明(必須1,000文字以内) (色,素材,重さ,定価,注意点など) 例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",  class: "textarea f"
+              .sell-main-container-item-box-data-form-sell.clearfix
+                %h3.sell-main-container-item-box-data-form-sell-hub 商品の詳細
+                .sell-main-container-item-box-data-form-sell-groups
+                  .sell-main-container-item-box-data-form-sell-groups-group
+                    %label
+                      カテゴリ
+                      %span.sell-main-container-item-box-data-form-sell-groups-group-require.require 必須
+                    %div
+                      .select-wrap
+                        = fa_icon 'chevron-down', class: "down"
+                        = f.select :category, {}, {}, class: "select f" do
+                          %option(value="") ---
+                          %option(value="1") レディース
+                          %option(value="2") メンズ
+                          %option(value="3") ベビー・キッズ
+                          %option(value="4") インテリア・住まい・小物
+                          %option(value="5") 本・音楽・ゲーム
+                          %option(value="6") おもちゃ・ホビー・グッズ
+                          %option(value="7") コスメ・香水・美容
+                          %option(value="8") 家電・スマホ・カメラ
+                          %option(value="9") スポーツ・レジャー
+                          %option(value="10") ハンドメイド
+                          %option(value="11") チケット
+                          %option(value="12") 自動車・オートバイ
+                          %option(value="13") その他
+                  .sell-main-container-item-box-data-form-sell-groups-group.suggest
+                  .sell-main-container-item-box-data-form-sell-groups-group
+                    %label
+                      商品の状態
+                      %span.sell-main-container-item-box-data-form-sell-groups-group-require.require 必須
+                    .select-wrap
+                      = fa_icon 'chevron-down', class: "down"
+                      = f.select :state, {},{},class: 'select f' do
+                        %option(value="") ---
+                        %option(value="1") 新品、未使用
+                        %option(value="2") 未使用に近い
+                        %option(value="3") 目立った傷や汚れなし
+                        %option(value="4") やや傷や汚れあり
+                        %option(value="5") 傷や汚れあり
+                        %option(value="6") 全体的に状態が悪い
+              .sell-main-container-item-box-data-form-sell.clearfix
+                %h3.sell-main-container-item-box-data-form-sell-hub 配送について
+                = link_to '?', ('/'), {class: "question"}
+                .sell-main-container-item-box-data-form-sell-groups
+                  .sell-main-container-item-box-data-form-sell-groups-group
+                    %label
+                      配送料の負担
+                      %span.sell-main-container-item-box-data-form-sell-groups-group-require 必須
+                    %div
+                      .select-wrap
+                        = fa_icon 'chevron-down', class: "down"
+                        = f.select :postage, {},{},class: 'select f' do
+                          %option(value="") ---
+                          %option(value="1") 送料込み(出品者負担)
+                          %option(value="2") 着払い(購入者負担)
+                  .sell-main-container-item-box-data-form-sell-groups-group
+                    %label
+                      配送の方法
+                      %span.sell-main-container-item-box-data-form-sell-groups-group-require 必須
+                    %div
+                      .select-wrap
+                        = fa_icon 'chevron-down', class: "down"
+                        = f.select :way, {},{},class: 'select f' do
+                          %option(value="") ---
+                          %option(value="1") 未定
+                          %option(value="2") クロネコヤマト
+                          %option(value="3") ゆうパック
+                          %option(value="4") ゆうメール
+                  .sell-main-container-item-box-data-form-sell-groups-group
+                    %label
+                      発送元の地域
+                      %span.sell-main-container-item-box-data-form-sell-groups-group-require 必須
+                    %div
+                      .select-wrap
+                        = fa_icon 'chevron-down', class: "down"
+                        = f.collection_select :region,Prefecture.all, :id, :name ,{},{class: 'select f'} 
+                  .sell-main-container-item-box-data-form-sell-groups-group
+                    %label
+                      発送までの日数
+                      %span.sell-main-container-item-box-data-form-sell-groups-group-require 必須
+                    %div
+                      .select-wrap
+                        = fa_icon 'chevron-down', class: "down"
+                        = f.select :shipping_date,{},{}, class: 'select f' do
+                          %option(value="") ---
+                          %option(value="1") 1~2日で発送
+                          %option(value="2") 2~3日で発送
+                          %option(value="3") 4~7日で発送
+              .sell-main-container-item-box-data-form-sell.clearfix.height
+                %h3.sell-main-container-item-box-data-form-sell-hub 販売価格(300~9,999,999)
+                = link_to '?', ('/'), class: 'question'
+                .sell-main-container-item-box-data-form-sell-groups_detail
+                  %ul.sell-main-container-item-box-data-form-sell-groups_detail_price
+                    %li.sell-main-container-item-box-data-form-sell-groups_detail_price_data
+                      .sell-main-container-item-box-data-form-sell-groups_detail_price_data-clear
+                        %label.left
+                          価格
+                          %span.sell-main-container-item-box-data-form-sell-groups_detail_price_data-clear-require 必須
+                        .right.price_input
+                          ¥
+                          %div.right-box
+                            = f.text_field :price, placeholder: "例)300",  class: "input-box f"
+                    %li.buy
+                      .buy_left 販売手数料 (10%)
+                      .buy_right -
+                    %li.price
+                      %div.price_left 販売利益
+                      %div.price_right -
+              .modal
+                .modal-inner
+              .sell-main-container-item-box-data-form-btn.sell-btn-box
+                %div
+                  %p
+                    = link_to '禁止されている出品', '/'
+                    、
+                    = link_to '行為', '/'
+                    を必ずご確認ください。
+                  %p
+                    またブランド品でシリアルナンバー等がある場合はご記載ください。
+                    = link_to '偽ブランドの販売', '/'
+                    は犯罪であり処罰される可能性があります。
+                  %p
+                    また、出品をもちまして
+                    = link_to '加盟店規約', '/'
+                    に同意したことになります。
+                = f.submit '出品する',class: 'btn-default btn-red f'
+                = link_to 'もどる', ('/'), class: 'btn-default btn-gray'
+            .overlay
+  = render 'sell/footer'
