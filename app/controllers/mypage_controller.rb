@@ -11,7 +11,5 @@ class MypageController < ApplicationController
   def profile
   end
 
-  def list
-    @items = Item.all
-  end
+
 end
