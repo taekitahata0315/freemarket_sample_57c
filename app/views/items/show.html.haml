@@ -1,0 +1,101 @@
+= render 'mercari/header'
+.details__item
+  %h1.details__item__name
+    = @item.name
+  %p.details__item__wording
+    = @item.name
+    は@取引回数の取引実績をもつ
+    = link_to @item.seller.nickname, "/" 
+    さんから出品されました。
+    = link_to "@カテゴリー", "/"
+    の商品で、
+    = @item.region
+    から
+    = @item.shipping_date
+    されます。
+  .details__item__main
+    .details__item__main__photo
+      .details__item__main__photo__owl
+        .details__item__main__photo__owl__outer
+          - if @item.images.attached?
+            - @item.images.each do |image|
+              - if image.record_id == @item.id
+                .details__item__main__photo__owl__outer__stage
+                  .details__item__main__photo__owl__outer__stage__item.active
+                    .details__item__main__photo__owl__outer__stage__item__inner
+                      = image_tag image, class: 'item_image'
+        .details__item__main__photo__owl__disabled
+          .details__item__main__photo__owl__disabled__prev prev
+          .details__item__main__photo__owl__disabled__next next
+        .details__item__main__photo__owl__dots
+          .details__item__main__photo__owl__dots__dot.active
+            %span
+            .details__item__main__photo__owl__dots__dot__inner
+              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_1.jpg?1563712554'
+          .details__item__main__photo__owl__dots__dot
+            %span
+            .details__item__main__photo__owl__dots__dot__inner
+              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_2.jpg?1563712554'
+    .details__item__main__price
+      %span.details__item__main__price__bold
+        = @item.price
+      %span.details__item__main__price__tax (税込)
+      %span.details__item__main__price__fee
+        = @item.postage
+    %table.details__item__main__table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to @item.seller.nickname
+            %div
+              .user__ratings
+                = fa_icon "smile-o", class: "raiting__icon"
+                %span 3
+              .user__ratings
+                = fa_icon "meh-o",class: "raiting__icon"
+                %span 3
+              .user__ratings
+                = fa_icon 'frown-o', class: "raiting__icon"
+                %span 3
+        %tr
+          %th カテゴリー
+          %td
+        %tr
+          %th ブランド
+          %td @アイテムのブランド
+        %tr
+          %th 商品の状態
+          %td 
+            = @item.state
+        %tr
+          %th 配送料の負担
+          %td 
+            = @item.postage
+        %tr
+          %th 配送の方法
+          %td 
+            = @item.way
+        %tr
+          %th 配送元地域
+          %td
+            = link_to @item.region ,"/"
+        %tr
+          %th 発送日の目安
+          %td 
+            = @item.shipping_date
+  .details__item__price
+    %span.details__item__price__bold
+      = @item.price
+    %span.details__item__price__tax (税込)
+    %span.details__item__price__fee
+      = @item.postage
+  .details__item__description.14f
+    %p.details__item__description__inner 
+      = @item.description
+
+.details__item
+  = link_to "商品の編集",edit_item_path(@item,@item.images), class: "buy-btn"
+  %div.or or
+  = link_to "出品を停止する", "/" , class: "buy-btn"
+  = link_to "この商品を削除する","/items/#{@item.id}", method: :delete, class: "buy-btn_gray"
