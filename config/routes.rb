@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'mypage/card', to: 'mypage#card'
   get 'mypage/identification', to: 'mypage#info'
   get 'mypage/profile', to: 'mypage#profile'
+  get 'mypage/list', to: 'mypage#list'
   resources :mypage
   resources :users, only: [:show ,:index]
   resources :items

@@ -1,0 +1,21 @@
+= render 'mercari/header'
+- breadcrumb :mypage
+= render "layouts/breadcrumbs"
+.mypage__l-content__clearfix
+  - @items.each do |item|
+    -if item.seller.id == current_user.id
+      .mypage_top__l-content
+        .mypage_top__l-content__todo
+          .mypage_top__l-content__text
+            %ul.mypage_top__l-content__text__list
+              %li.mypage_top__l-content__text__list__1
+                = link_to item_path(item.id) do 
+                  .mypage_top__l-content__text__list__1__figure
+                    - if item.images.attached?
+                      - item.images.each do |image|
+                        = image_tag image, alt: '', height: '48', width: '48', class: 'mypage-itme-link'
+                  = item.name
+  = render 'users/mypage_sidebar'
+= render 'mercari/aside'
+= render 'mercari/footer'
+= render 'mercari/exhibit'

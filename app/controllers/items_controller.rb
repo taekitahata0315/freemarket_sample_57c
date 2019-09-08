@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.new
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -20,7 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
     @item.update(update_item_params)
+    redirect_to item_path(@item.id)
   end
 
   def new
@@ -28,6 +30,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy if item.seller_id == current_user.id
+    redirect_to root_path
   end
 
   private
