@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',registrations: 'users/registrations' } 
   root 'mercari#index'  
   get 'mercari/logout', to: 'mercari#logout'
