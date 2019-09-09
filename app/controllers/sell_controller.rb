@@ -13,6 +13,7 @@ class SellController < ApplicationController
   end
 
   def comfirm
+    @item = Item.find(params[:id])
   end
 
   def show

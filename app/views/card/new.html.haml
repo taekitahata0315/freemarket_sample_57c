@@ -1,0 +1,81 @@
+= render 'mercari/progress'
+%main.card.clearfix
+  %div.card__box
+    %section.card__box--container
+      %h2.card__box--container--head クレジットカード情報入力
+      = form_with url: pay_card_index_path,local: true, class:'card__box--inner card__box--registration', id:'add-card-form',name: "inputForm", novalidate: "novalidate" do |f|
+        %input{type: "hidden", name:"", value:""}
+        %div.card__box--content
+          %div.card__box--form-group
+            %label{for: "payment_card_no"} カード番号
+            %span.form-require 必須
+            = f.text_field :name , type:"text", value:"", placeholder:"半角数字のみ", "data-input-type": "card",id:'payment_card_no', class: 'card__box--input', maxlength:"19"
+            %ul#card-on-error-wrapper.error-text
+            %ul.card-list
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2394192159"), width: '49', height: '20', alt:""
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2394192159"), width: '34', height: '20', alt:""
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2394192159"), width: '30', height: '20', alt:""
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2394192159"), width: '32', height: '20', alt:""
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2394192159"), width: '21', height: '20', alt:""
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2394192159"), width: '32', height: '20', alt:""
+              %li
+                =image_tag ("//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2394192159"), width: '32', height: '20', alt:""
+          %div.card__box--form-group.signup-form-expire.left
+            %label{for:"card__expiration--date-mm"}有効期限
+            %span.form-require 必須
+            %br
+            %div.select-wrapper.half
+              %select#card__expiration--date-mm.select-default{name: "exp_month", type: "text"}
+                %option{value: ""} --
+                %option{value: "01"} 01
+                %option{value: "02"} 02
+                %option{value: "03"} 03
+                %option{value: "04"} 04
+                %option{value: "05"} 05
+                %option{value: "06"} 06
+                %option{value: "07"} 07
+                %option{value: "08"} 08
+                %option{value: "09"} 09
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+              %i.fa.fa-chevron-down
+              %span 月
+            %div.select-wrapper.half
+              %select#card__expiration--date-yy.select-default{name: "exp_year", type: "text"}
+                %option{value: ""} --
+                %option{value:"2019"} 2019
+                %option{value:"2020"} 2020
+                %option{value:"2021"} 2021
+                %option{value:"2022"} 2022
+                %option{value:"2023"} 2023
+                %option{value:"2024"} 2024
+                %option{value:"2026"} 2026
+                %option{value:"2025"} 2025
+                %option{value:"2027"} 2027
+                %option{value:"2028"} 2028
+                %option{value:"2029"} 2029
+              %i.fa.fa-chevron-down
+              %span 年
+              %ul#mm-error-expire-outer.error-text
+              %ul#yy-error-expire-outer.error-text
+          %div.card__box--form-group
+            %label{for:"payment_card_security_code"} セキュリティコード
+            %span.form-require 必須
+            = f.text_field :cvc, placeholder: "カード背面4桁もしくは3桁の番号", type:"number", value: "", class:'card__box--input', id:'payment_card_security_code'
+            %ul#security-code-error-outer.error-text
+              %div.signup__securitiy--code{"data-js": "show-tips-toggle"}
+                %span.form-puestion ?
+                カード裏面の番号とは？
+              %div.signup__securitiy--info{"data-js": "show-tips-outer"}
+              = image_tag(" ")
+            %p#primariy-error.error-text
+          = f.submit "追加する", class:'btn__default--red btn__default', id:'submit-button'
+.sell-container
+  = render 'sell/footer'

@@ -9,11 +9,12 @@
           .buy-confirmation__wrapper__item__inner__image
           = image_tag ('https://item-shopping.c.yimg.jp/i/l/card-museum_vjmp-jp116-kcr'), alt: '', height: '64px', width: '64px', class: ''
           .buy-confirmation__wrapper__item__inner__name 
-            遊戯王 オシリスの天空竜
+            = @item.name
           .buy-confirmation__wrapper__item__inner__form
             .buy-confirmation__wrapper__item__inner__form__price
               %p 
-                ¥1,000
+                ¥
+                = @item.price
                 %span 送料込み
             .buy-confirmation__wrapper__item__inner__form__point
               %ul 
@@ -23,10 +24,13 @@
               %li
                 %div 支払い金額
                 %div
-                  %span ¥6,000
+                  %span ¥ 
+                  = @item.price
             .buy-confirmation__wrapper__item__inner__form__error 配送先と支払い方法の入力を完了してください。
             .buy-confirmation__wrapper__item__inner__form__purchase
-              %input{type: 'submit' ,class: 'purchase-submit',value: '購入する'}
+              -# %input{type: 'submit' ,class: 'purchase-submit',value: '購入する',}
+              = form_tag( url: "/purchase/#{@item.id}/pay",controller: :purchase, action: :pay ) do
+                %button 購入する
       .buy-confirmation__wrapper__info
         .buy-confirmation__wrapper__info__inner
           %h3 配送先
