@@ -44,7 +44,7 @@
         = @item.postage
     .visible
       .visible__btn
-        = link_to "購入画面に進む", sell_comfirm_path, class: "visible__btn__link"
+        = link_to "購入画面に進む", comfirm_sell_path(@item), class: "visible__btn__link"
     %table.details__item__main__table
       %tbody
         %tr
@@ -93,7 +93,7 @@
     %span.details__item__price__tax (税込)
     %span.details__item__price__fee
       = @item.postage
-  = link_to "購入画面に進む",sell_comfirm_path, class: "buy-btn"
+  = link_to "購入画面に進む",comfirm_sell_path(@item), class: "buy-btn"
   .details__item__description.14f
     %p.details__item__description__inner 
       = @item.description
