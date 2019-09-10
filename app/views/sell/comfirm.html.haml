@@ -30,9 +30,11 @@
             .buy-confirmation__wrapper__item__inner__form__error 配送先と支払い方法の入力を完了してください。
             .buy-confirmation__wrapper__item__inner__form__purchase
               = form_tag( url: "/purchase/#{@item.id}/pay",controller: :purchase, action: :pay ) do
-                - if @item.buyer_id == nil
+                - if(@item.buyer_id == nil && @item.seller_id != current_user.id)
                   %button.purchase-submit 購入する
-                -if @item.buyer_id != nil
+                - elsif(@item.seller_id == current_user.id)
+                  .purchase-submit 購入できません
+                - if(@item.buyer_id != nil && @item.seller_id != current_user.id)
                   .purchase-submit 売り切れました
       .buy-confirmation__wrapper__info
         .buy-confirmation__wrapper__info__inner
