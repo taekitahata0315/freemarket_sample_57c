@@ -3,7 +3,7 @@
 - @items.each do |item|
   %section.pickup_main-content-items-box
     = link_to mercari_path(item.id) do  
-      %figure.pickup_main-content-items-box-photo  
+      %figure.pickup_main-content-items-box-photo
         = image_tag item.images.reverse[0],  class: "pickup_main-content-items-box-photo-img lazyloaded"
       .pickup_main-content-items-box-body
         %h3.pickup_main-content-items-box-body-name.font-2
