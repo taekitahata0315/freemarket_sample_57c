@@ -48,6 +48,7 @@
         .buy-confirmation__wrapper__pay__inner
           %h3 支払い方法
           .buy-confirmation__wrapper__pay__inner__text
+          - if @default_card_information.blank?
             %br
             %p /
             %br
