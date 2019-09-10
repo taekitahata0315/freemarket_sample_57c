@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   has_many :voted_items, through: :votes, source: :item
   has_many_attached :images
   
+  validates :images, presence: true
+
 
   def previous
     Item.order('created_at desc').where("created_at < ?", created_at).first
