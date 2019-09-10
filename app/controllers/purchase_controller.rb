@@ -17,13 +17,17 @@ class PurchaseController < ApplicationController
   def pay
     @item = Item.find(params[:id])
     card = Card.where(user_id: current_user.id).first
+    if @item.seller_id == current_user.id
+      redirect_to root_path
+    else
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     amount:@item.price,
     customer: card.customer_id,
     currency: 'jpy',
   )
-  
+  @item.update(buyer_id: current_user.id)
   redirect_to '/mercari'
+    end
   end
 end
