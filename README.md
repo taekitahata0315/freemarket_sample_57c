@@ -54,7 +54,7 @@
 |state|string|null: false|
 |description|text|
 |votes_item_id|integer|foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
+
 
 ###Association
 - belongs_to :buyers_id, class_name: 'User'
