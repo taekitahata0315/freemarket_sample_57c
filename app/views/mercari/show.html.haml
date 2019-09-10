@@ -17,25 +17,19 @@
     .details__item__main__photo
       .details__item__main__photo__owl
         .details__item__main__photo__owl__outer
-          - if @item.images.attached?
-            - @item.images.each do |image|
-              - if image.record_id == @item.id
-                .details__item__main__photo__owl__outer__stage
-                  .details__item__main__photo__owl__outer__stage__item.active
-                    .details__item__main__photo__owl__outer__stage__item__inner
-                      = image_tag image, class: 'item_image'
+          .details__item__main__photo__owl__outer__stage
+            .details__item__main__photo__owl__outer__stage__item.active
+              .details__item__main__photo__owl__outer__stage__item__inner
+                = image_tag @item.images.reverse[0], class: 'item_image'
         .details__item__main__photo__owl__disabled
           .details__item__main__photo__owl__disabled__prev prev
           .details__item__main__photo__owl__disabled__next next
         .details__item__main__photo__owl__dots
-          .details__item__main__photo__owl__dots__dot.active
-            %span
-            .details__item__main__photo__owl__dots__dot__inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_1.jpg?1563712554'
-          .details__item__main__photo__owl__dots__dot
-            %span
-            .details__item__main__photo__owl__dots__dot__inner
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m32045086614_2.jpg?1563712554'
+          - @item.images.reverse.each do |image|
+            .details__item__main__photo__owl__dots__dot.active
+              %span
+              .details__item__main__photo__owl__dots__dot__inner
+                = image_tag image
     .details__item__main__price
       %span.details__item__main__price__bold
         = @item.price
