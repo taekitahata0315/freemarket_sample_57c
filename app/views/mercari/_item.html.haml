@@ -1,16 +1,16 @@
 .top-stage-image-item.cloned
   = link_to "", sell_index_path , class: "top-stage-image-item-one"
-- @item.each do |item|
+- @items.each do |item|
   %section.pickup_main-content-items-box
-    = link_to mercari_path(item.id) do 
-      %figure.pickup_main-content-items-box-photo
-        = image_tag ('https://rr.img.naver.jp/mig?src=http%3A%2F%2Fcdn.mkimg.carview.co.jp%2Fminkara%2Fuserstorage%2F000%2F009%2F818%2F181%2F73ea5d0eff.jpg&twidth=1200&theight=1200&qlt=80&res_format=jpg&op=r'), class: "pickup_main-content-items-box-photo-img lazyloaded", size: "213x220"
+      %figure.pickup_main-content-items-box-photo  
+        = image_tag item.images.reverse[0],  class: "pickup_main-content-items-box-photo-img lazyloaded"
       .pickup_main-content-items-box-body
         %h3.pickup_main-content-items-box-body-name.font-2
         = item.name
         .pickup_main-content-items-box-body-num
           .pickup_main-content-items-box-body-num_price.font-5
-          = item.price
+            ¥
+            = item.price
           .pickup_main-content-items-box-body-num_icon.font-2
             = fa_icon 'heart' , class: "pickup_main-content-items-box-body-num_icon_heart"
-            %span 
+            %span 3 

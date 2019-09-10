@@ -1,6 +1,6 @@
 class MercariController < ApplicationController
   def index
-    @item = Item.all
+    @items = Item.all
   end
 
   def show
