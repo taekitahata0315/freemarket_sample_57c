@@ -5,13 +5,13 @@
   %div.card__box
     %section.card__box--container
       %h2.card__box--container--head クレジットカード情報入力
-      %form#add-card-form.card__box--inner.card__box--registration{action: "https://www.mercari.com/jp/mypage/card/add/", "data-adyen-id" => "card-form", method: "POST", novalidate: "novalidate" }
+      = form_with url: pay_card_index_path,local: true, class:'card__box--inner card__box--registration', id:'add-card-form',name: "inputForm", novalidate: "novalidate" do |f|
         %input{type: "hidden", name:"", value:""}
         %div.card__box--content
           %div.card__box--form-group
             %label{for: "payment_card_no"} カード番号
             %span.form-require 必須
-            %input{ type:"text",　value:"", placeholder:"半角数字のみ", "data-input-type": "card",id:'payment_card_no', class: 'card__box--input', maxlength:"19"}
+            = f.text_field :name , type:"text", value:"", placeholder:"半角数字のみ", "data-input-type": "card",id:'payment_card_no', class: 'card__box--input', maxlength:"19"
             %ul#card-on-error-wrapper.error-text
             %ul.card-list
               %li
@@ -33,7 +33,8 @@
             %span.form-require 必須
             %br
             %div.select-wrapper.half
-              %select#card__expiration--date-mm.select-default
+              %select#card__expiration--date-mm.select-default{name: "exp_month", type: "text"}
+                %option{value: ""} --
                 %option{value: "01"} 01
                 %option{value: "02"} 02
                 %option{value: "03"} 03
@@ -49,18 +50,19 @@
               %i.fa.fa-chevron-down
               %span 月
             %div.select-wrapper.half
-              %select#card__expiration--date-yy.select-default
-                %option{value:"19"} 19
-                %option{value:"20"} 20
-                %option{value:"21"} 21
-                %option{value:"22"} 22
-                %option{value:"23"} 23
-                %option{value:"24"} 24
-                %option{value:"25"} 25
-                %option{value:"26"} 26
-                %option{value:"27"} 27
-                %option{value:"28"} 28
-                %option{value:"29"} 29
+              %select#card__expiration--date-yy.select-default{name: "exp_year", type: "text"}
+                %option{value: ""} --
+                %option{value:"2019"} 2019
+                %option{value:"2020"} 2020
+                %option{value:"2021"} 2021
+                %option{value:"2022"} 2022
+                %option{value:"2023"} 2023
+                %option{value:"2024"} 2024
+                %option{value:"2026"} 2026
+                %option{value:"2025"} 2025
+                %option{value:"2027"} 2027
+                %option{value:"2028"} 2028
+                %option{value:"2029"} 2029
               %i.fa.fa-chevron-down
               %span 年
               %ul#mm-error-expire-outer.error-text
@@ -68,20 +70,15 @@
           %div.card__box--form-group
             %label{for:"payment_card_security_code"} セキュリティコード
             %span.form-require 必須
-            %input#payment_card_security_code.card__box--input{placeholder: "カード背面4桁もしくは3桁の番号", type:"number", value: ""}
+            = f.text_field :cvc, placeholder: "カード背面4桁もしくは3桁の番号", type:"number", value: "", class:'card__box--input', id:'payment_card_security_code'
             %ul#security-code-error-outer.error-text
               %div.signup__securitiy--code{"data-js": "show-tips-toggle"}
                 %span.form-puestion ?
                 カード裏面の番号とは？
               %div.signup__securitiy--info{"data-js": "show-tips-outer"}
               = image_tag(" ")
-            %input#user_id{name: "", type: "hidden", value:""}
-            %input#encrypted_card_data{name: "encrypted_card_data", type: "hidden"}
-            %p#primariy-erro.error-text
-            %input{name: "after_seave_callbarck", type: "hidden", value: ""}
-            %button#submit-button.btn__default.btn__default--red{type: "button"} 追加する
-            %script{async: "", src: ""}
-            %script{async: "", src: ""}
+            %p#primariy-error.error-text
+          = f.submit "追加する", class:'btn__default--red btn__default', id:'submit-button'
   = render './users/mypage_sidebar'
 = render './mercari/aside'
 = render './mercari/footer'
