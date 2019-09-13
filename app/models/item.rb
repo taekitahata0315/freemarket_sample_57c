@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :voted_items, through: :votes, source: :item
   has_many_attached :images
   
-  validates :images, presence: true
+  validates :images, presence: true, length: {maximum: 10}
 
 
   def previous
